@@ -12,7 +12,7 @@ permissions:
 jobs:
   release:
     name: Build & Release
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - uses: actions/checkout@v6
         with:
@@ -164,7 +164,7 @@ jobs:
 
   publish-pypi:
     name: Publish to PyPI
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: release
     environment: release
     permissions:
@@ -193,7 +193,7 @@ jobs:
 
   publish-crates:
     name: Publish to crates.io
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: release
     environment: release
     steps:
@@ -214,7 +214,7 @@ jobs:
 
   update-docs:
     name: Update docs with release version
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: release
     permissions:
       contents: write
