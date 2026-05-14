@@ -24,7 +24,7 @@ path = "src/bin/sse.rs"
 async-trait = "0.1"
 prost = "0.14"
 prost-types = "0.14"
-rmcp = { version = "1.5", features = [
+rmcp = { version = "1.6", features = [
     "server",
     "transport-io",
     "transport-streamable-http-server",
