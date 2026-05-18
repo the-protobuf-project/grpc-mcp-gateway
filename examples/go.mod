@@ -6,7 +6,7 @@ require (
 	github.com/machanirobotics/grpc-mcp-gateway v0.0.0-00010101000000-000000000000
 	github.com/modelcontextprotocol/go-sdk v1.6.0
 	google.golang.org/genproto/googleapis/api v0.0.0-20260406210006-6f92a3bedf2d
-	google.golang.org/grpc v1.81.0
+	google.golang.org/grpc v1.81.1
 	google.golang.org/protobuf v1.36.11
 )
 
