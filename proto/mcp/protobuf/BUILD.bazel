@@ -1,0 +1,26 @@
+# gazelle:ignore
+load("@protobuf//bazel:proto_library.bzl", "proto_library")
+
+# Proto imports use paths like "mcp/protobuf/foo.proto" relative to proto/.
+proto_library(
+    name = "mcppb_proto",
+    srcs = [
+        "annotations.proto",
+        "app.proto",
+        "elicitation.proto",
+        "enum.proto",
+        "field.proto",
+        "field_type.proto",
+        "mime_type.proto",
+        "progress.proto",
+        "prompt.proto",
+        "resource.proto",
+        "service_options.proto",
+    ],
+    strip_import_prefix = "/proto",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@googleapis//google/api:resource_proto",
+        "@protobuf//:descriptor_proto",
+    ],
+)
