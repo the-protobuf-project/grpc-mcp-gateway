@@ -1,0 +1,22 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "templates",
+    srcs = ["embed.go"],
+    embedsrcs = [
+        "cpp/bridge.tpl",
+        "cpp/build_rs.tpl",
+        "cpp/cargo_toml.tpl",
+        "cpp/handler.tpl",
+        "cpp/impl.tpl",
+        "cpp/main.tpl",
+        "cpp/makefile.tpl",
+        "cpp/mcp.h.tpl",
+        "cpp/mcp_include.tpl",
+        "go.tpl",
+        "python.tpl",
+        "rust.tpl",
+    ],
+    importpath = "github.com/machanirobotics/grpc-mcp-gateway/plugin/generator/templates",
+    visibility = ["//visibility:public"],
+)

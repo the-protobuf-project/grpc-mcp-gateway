@@ -1,0 +1,13 @@
+{
+	"homepage": "https://github.com/machanirobotics/grpc-mcp-gateway",
+	"maintainers": [
+		{
+			"name": "Machani Robotics",
+			"email": "develop@machanirobotics.com",
+			"github": "machanirobotics"
+		}
+	],
+	"repository": ["github:machanirobotics/grpc-mcp-gateway"],
+	"versions": [],
+	"yanked_versions": {}
+}

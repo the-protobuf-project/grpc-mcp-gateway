@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - "v*"
+      - 'v*'
 
 permissions:
   contents: write
@@ -77,23 +77,28 @@ jobs:
       - name: Generate changelog
         id: changelog
         run: |
+          REPO_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
           PREV_TAG=$(git tag --sort=-version:refname | grep -E '^v' | sed -n '2p')
           if [ -z "$PREV_TAG" ]; then
-            COMMITS=$(git log --pretty=format:"%s|%h" HEAD)
+            COMMITS=$(git log --pretty=format:"%s|%h|%H" HEAD)
           else
-            COMMITS=$(git log --pretty=format:"%s|%h" "${PREV_TAG}..HEAD")
+            COMMITS=$(git log --pretty=format:"%s|%h|%H" "${PREV_TAG}..HEAD")
           fi
 
           NEW="" UPDATED="" FIXED="" OTHER=""
-          while IFS='|' read -r msg hash; do
+          while IFS='|' read -r msg short hash; do
             [ -z "$msg" ] && continue
+            # Link any "(#123)" PR reference in the subject to the PR page.
+            msg=$(echo "$msg" | sed -E "s@\(#([0-9]+)\)@([#\1](${REPO_URL}/pull/\1))@g")
+            # Clickable short-hash link to the commit.
+            entry="- ${msg} ([\`${short}\`](${REPO_URL}/commit/${hash}))\n"
             lower=$(echo "$msg" | tr '[:upper:]' '[:lower:]')
             case "$lower" in
-              feat:*|feat\(*|add:*|add\ *)   NEW="${NEW}- ${msg} (\`${hash}\`)\n" ;;
-              fix:*|fix\(*|bug:*|bugfix:*)    FIXED="${FIXED}- ${msg} (\`${hash}\`)\n" ;;
+              feat:*|feat\(*|add:*|add\ *)   NEW="${NEW}${entry}" ;;
+              fix:*|fix\(*|bug:*|bugfix:*)    FIXED="${FIXED}${entry}" ;;
               refactor:*|refactor\(*|chore:*|chore\(*|docs:*|docs\(*|ci:*|ci\(*|style:*|perf:*|build:*)
-                                              UPDATED="${UPDATED}- ${msg} (\`${hash}\`)\n" ;;
-              *)                              OTHER="${OTHER}- ${msg} (\`${hash}\`)\n" ;;
+                                              UPDATED="${UPDATED}${entry}" ;;
+              *)                              OTHER="${OTHER}${entry}" ;;
             esac
           done <<< "$COMMITS"
 
@@ -174,7 +179,7 @@ jobs:
 
       - uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
+          python-version: '3.12'
 
       - name: Stamp version from tag
         run: |

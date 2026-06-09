@@ -54,6 +54,28 @@ jobs:
           cd plugin && go test ./...
           cd ../examples && go test ./...
 
+  bazel:
+    name: Build & Test (Bazel)
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    steps:
+      - uses: actions/checkout@v6
+      - uses: bazel-contrib/setup-bazel@0.19.0
+        with:
+          # Cache the bazelisk download, the repository cache (external deps),
+          # and the disk cache (build outputs) keyed per workflow.
+          bazelisk-cache: true
+          disk-cache: ${{ github.workflow }}
+          repository-cache: true
+      # CI runners ship the Android SDK (ANDROID_HOME set), which activates the
+      # transitive android_sdk_repository_extension. On Bazel 8+ that extension
+      # references the removed @local_config_platform and breaks toolchain
+      # resolution. Clear ANDROID_HOME so the extension stays a no-op stub,
+      # matching the committed MODULE.bazel.lock (generated without an SDK).
+      - name: Bazel build
+        run: bazel build //... --repo_env=ANDROID_HOME=
+      - name: Bazel test
+        run: bazel test //... --repo_env=ANDROID_HOME= --test_output=errors
+
   python:
     name: Check (Python)
     runs-on: blacksmith-4vcpu-ubuntu-2404
@@ -90,7 +112,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          python-version: "3.12"
+          python-version: '3.12'
       - name: Build & verify imports
         working-directory: mcp/protobuf/python
         run: |

@@ -1,0 +1,13 @@
+# BCR presubmit: validates that the published module builds against its
+# non-dev dependencies (protobuf, googleapis). rules_go/gazelle are dev-only,
+# so consumers can only build the proto targets — that is what we verify here.
+matrix:
+  platform: ["debian10", "macos", "ubuntu2004", "windows"]
+  bazel: ["7.x", "8.x"]
+tasks:
+  verify_targets:
+    name: Verify build targets
+    platform: ${{ platform }}
+    bazel: ${{ bazel }}
+    build_targets:
+      - "@grpc_mcp_gateway//proto/mcp/protobuf:mcppb_proto"
