@@ -23,7 +23,7 @@
     <img src="https://img.shields.io/crates/v/mcp-protobuf?logo=rust&label=crates.io" />
   </a>
   <a href="https://buf.build/the-protobuf-project/grpc-mcp-gateway">
-    <img src="https://img.shields.io/badge/BSR-buf.build%2Fmachanirobotics%2Fgrpc--mcp--gateway-blue" />
+    <img src="https://img.shields.io/badge/BSR-buf.build%2Fthe-protobuf-project%2Fgrpc--mcp--gateway-blue" />
   </a>
 </p>
 
