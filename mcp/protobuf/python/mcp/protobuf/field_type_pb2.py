@@ -24,14 +24,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dmcp/protobuf/field_type.proto\x12\x0cmcp.protobuf*\x9c\x01\n\x0cMCPFieldType\x12\x1e\n\x1aMCP_FIELD_TYPE_UNSPECIFIED\x10\x00\x12\x19\n\x15MCP_FIELD_TYPE_STRING\x10\x01\x12\x19\n\x15MCP_FIELD_TYPE_NUMBER\x10\x02\x12\x1a\n\x16MCP_FIELD_TYPE_BOOLEAN\x10\x03\x12\x1a\n\x16MCP_FIELD_TYPE_INTEGER\x10\x04\x42\x64\n\x10\x63om.mcp.protobufB\x0e\x46ieldTypeProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1dmcp/protobuf/field_type.proto\x12\x0cmcp.protobuf*\x9c\x01\n\x0cMCPFieldType\x12\x1e\n\x1aMCP_FIELD_TYPE_UNSPECIFIED\x10\x00\x12\x19\n\x15MCP_FIELD_TYPE_STRING\x10\x01\x12\x19\n\x15MCP_FIELD_TYPE_NUMBER\x10\x02\x12\x1a\n\x16MCP_FIELD_TYPE_BOOLEAN\x10\x03\x12\x1a\n\x16MCP_FIELD_TYPE_INTEGER\x10\x04\x42\x64\n\x10\x63om.mcp.protobufB\x0e\x46ieldTypeProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'mcp.protobuf.field_type_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\016FieldTypeProtoP\001Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\016FieldTypeProtoP\001Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb'
   _globals['_MCPFIELDTYPE']._serialized_start=48
   _globals['_MCPFIELDTYPE']._serialized_end=204
 # @@protoc_insertion_point(module_scope)

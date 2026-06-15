@@ -21,8 +21,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/machanirobotics/grpc-mcp-gateway"
-Repository = "https://github.com/machanirobotics/grpc-mcp-gateway"
+Homepage = "https://github.com/the-protobuf-project/grpc-mcp-gateway"
+Repository = "https://github.com/the-protobuf-project/grpc-mcp-gateway"
 
 [tool.setuptools.packages.find]
 where = ["."]

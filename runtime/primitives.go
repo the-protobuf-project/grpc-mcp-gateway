@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/google/jsonschema-go/jsonschema"
-	"github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb"
+	"github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb"
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 )
 

@@ -24,7 +24,7 @@ publish workflow will fail.
 
 ### 1. Fork the registry
 
-Create **`machanirobotics/bazel-central-registry`** as a fork of
+Create **`the-protobuf-project/bazel-central-registry`** as a fork of
 [`bazelbuild/bazel-central-registry`](https://github.com/bazelbuild/bazel-central-registry).
 This is the `registry_fork` the workflow pushes the entry branch to before
 opening the PR upstream.

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package todo.v1;
 
-option go_package = "github.com/machanirobotics/grpc-mcp-gateway/examples/proto/generated/go/todo/todopbv1;todopbv1";
+option go_package = "github.com/the-protobuf-project/grpc-mcp-gateway/examples/proto/generated/go/todo/todopbv1;todopbv1";
 option java_multiple_files = true;
 option java_outer_classname = "TodoServiceProto";
 option java_package = "com.todo.v1";
@@ -17,7 +17,7 @@ import "todo/v1/todo.proto";
 
 // Service for managing todo items.
 service TodoService {
-  option (google.api.default_host) = "machanirobotics.app.todo.v1";
+  option (google.api.default_host) = "the-protobuf-project.app.todo.v1";
   option (mcp.protobuf.service) = {
     app: {
       name: "Todo App"

@@ -127,7 +127,7 @@ const file_mcp_protobuf_annotations_proto_rawDesc = "" +
 	"\x04enum\x12\x1c.google.protobuf.EnumOptions\x18\xbd\x8e\x03 \x01(\v2\x1c.mcp.protobuf.MCPEnumOptionsR\x04enum\x88\x01\x01:h\n" +
 	"\n" +
 	"enum_value\x12!.google.protobuf.EnumValueOptions\x18\xbe\x8e\x03 \x01(\v2!.mcp.protobuf.MCPEnumValueOptionsR\tenumValue\x88\x01\x01Bf\n" +
-	"\x10com.mcp.protobufB\x10AnnotationsProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
+	"\x10com.mcp.protobufB\x10AnnotationsProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var file_mcp_protobuf_annotations_proto_goTypes = []any{
 	(*descriptorpb.ServiceOptions)(nil),   // 0: google.protobuf.ServiceOptions

@@ -1,7 +1,7 @@
 # grpc-mcp-gateway Justfile
 # Run `just --list` to see all available recipes.
 
-mod := "github.com/machanirobotics/grpc-mcp-gateway/v2"
+mod := "github.com/the-protobuf-project/grpc-mcp-gateway/v2"
 bin := "protoc-gen-mcp"
 
 # Default: list all recipes
@@ -130,7 +130,7 @@ clean:
     rm -rf ./dist
 
 
-# Push proto module to buf.build/machanirobotics/grpc-mcp-gateway
+# Push proto module to buf.build/the-protobuf-project/grpc-mcp-gateway
 buf-push:
     cd proto && buf push
 
@@ -169,4 +169,4 @@ release version: clean (build-all version)
     @echo ""
     @echo "Pushing proto module to BSR with label {{version}} ..."
     cd proto && buf push --label {{version}}
-    @echo "Done. Proto published as buf.build/machanirobotics/grpc-mcp-gateway:{{version}}"
+    @echo "Done. Proto published as buf.build/the-protobuf-project/grpc-mcp-gateway:{{version}}"

@@ -131,7 +131,7 @@ jobs:
 
             **Go install (plugin):**
             ```bash
-            go install github.com/machanirobotics/grpc-mcp-gateway/plugin/cmd/protoc-gen-mcp@${{ env.VERSION }}
+            go install github.com/the-protobuf-project/grpc-mcp-gateway/plugin/cmd/protoc-gen-mcp@${{ env.VERSION }}
             ```
 
             **Python (pre-compiled proto types):**

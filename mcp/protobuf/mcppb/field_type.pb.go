@@ -93,7 +93,7 @@ const file_mcp_protobuf_field_type_proto_rawDesc = "" +
 	"\x15MCP_FIELD_TYPE_NUMBER\x10\x02\x12\x1a\n" +
 	"\x16MCP_FIELD_TYPE_BOOLEAN\x10\x03\x12\x1a\n" +
 	"\x16MCP_FIELD_TYPE_INTEGER\x10\x04Bd\n" +
-	"\x10com.mcp.protobufB\x0eFieldTypeProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
+	"\x10com.mcp.protobufB\x0eFieldTypeProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
 	file_mcp_protobuf_field_type_proto_rawDescOnce sync.Once

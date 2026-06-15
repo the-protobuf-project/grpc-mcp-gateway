@@ -3,7 +3,7 @@
 //
 // # Install
 //
-//	go get github.com/machanirobotics/grpc-mcp-gateway/runtime
+//	go get github.com/the-protobuf-project/grpc-mcp-gateway/runtime
 //
 // # Quick Start
 //

@@ -33,7 +33,7 @@ github.com/iancoleman/strcase v0.3.0/go.mod h1:iwCmte+B7n89clKwxIoIXy/HfoL7AsD47
 github.com/kr/pretty v0.3.1/go.mod h1:hoEshYVHaxMs3cyo3Yncou5ZscifuDolrwPKZanG3xk=
 github.com/kr/text v0.2.0/go.mod h1:eLer722TekiGuMkidMxC/pM04lWEeraHUUmBw8l2grE=
 github.com/lyft/protoc-gen-star/v2 v2.0.4-0.20230330145011-496ad1ac90a4/go.mod h1:amey7yeodaJhXSbf/TlLvWiqQfLOSpEk//mLlc+axEk=
-github.com/machanirobotics/grpc-mcp-gateway/v2 v2.0.1/go.mod h1:jwQzvYVdefIACD0G87QtjRDjKfgelQVSCSc4Rvo9U44=
+github.com/the-protobuf-project/grpc-mcp-gateway/v2 v2.0.1/go.mod h1:jwQzvYVdefIACD0G87QtjRDjKfgelQVSCSc4Rvo9U44=
 github.com/planetscale/vtprotobuf v0.6.1-0.20240319094008-0393e58bdf10/go.mod h1:t/avpk3KcrXxUnYOhZhMXJlSEyie6gQbtLq5NM3loB8=
 github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.6.2/go.mod h1:y3m2F6Gdpfy6Ut/GBsUqTWZqCUvMVzSfMLjcu6wAwpE=

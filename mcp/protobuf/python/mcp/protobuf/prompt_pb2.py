@@ -24,14 +24,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19mcp/protobuf/prompt.proto\x12\x0cmcp.protobuf\"Y\n\tMCPPrompt\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x16\n\x06schema\x18\x03 \x01(\tR\x06schema\"t\n\x0eMCPToolOptions\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1f\n\x08progress\x18\x03 \x01(\x08H\x00R\x08progress\x88\x01\x01\x42\x0b\n\t_progressBa\n\x10\x63om.mcp.protobufB\x0bPromptProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19mcp/protobuf/prompt.proto\x12\x0cmcp.protobuf\"Y\n\tMCPPrompt\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x16\n\x06schema\x18\x03 \x01(\tR\x06schema\"t\n\x0eMCPToolOptions\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x02 \x01(\tR\x0b\x64\x65scription\x12\x1f\n\x08progress\x18\x03 \x01(\x08H\x00R\x08progress\x88\x01\x01\x42\x0b\n\t_progressBa\n\x10\x63om.mcp.protobufB\x0bPromptProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'mcp.protobuf.prompt_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\013PromptProtoP\001Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\013PromptProtoP\001Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb'
   _globals['_MCPPROMPT']._serialized_start=43
   _globals['_MCPPROMPT']._serialized_end=132
   _globals['_MCPTOOLOPTIONS']._serialized_start=134

@@ -4,6 +4,6 @@ deps:
   - name: buf.build/googleapis/googleapis
     commit: 004180b77378443887d3b55cabc00384
     digest: b5:e8f475fe3330f31f5fd86ac689093bcd274e19611a09db91f41d637cb9197881ce89882b94d13a58738e53c91c6e4bae7dc1feba85f590164c975a89e25115dc
-  - name: buf.build/machanirobotics/grpc-mcp-gateway
+  - name: buf.build/the-protobuf-project/grpc-mcp-gateway
     commit: d877c5d47e504aa3a777994b2519a4c0
     digest: b5:61fc98c6d2177807bf2032faf3be9302f2ca334fcbf2904e4eb1946093dc46ceda0221b8681a72ee3f27d3276bb4b1731f0d84efd7e3a03ed5f5b42b43c45d38

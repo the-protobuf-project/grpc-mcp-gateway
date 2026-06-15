@@ -7,7 +7,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb"
+	"github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb"
 	"google.golang.org/protobuf/compiler/protogen"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/pluginpb"

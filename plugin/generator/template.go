@@ -3,7 +3,7 @@ package generator
 import (
 	"fmt"
 
-	"github.com/machanirobotics/grpc-mcp-gateway/plugin/generator/templates"
+	"github.com/the-protobuf-project/grpc-mcp-gateway/plugin/generator/templates"
 )
 
 // Supported languages for code generation.

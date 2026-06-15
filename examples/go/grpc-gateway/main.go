@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/machanirobotics/grpc-mcp-gateway/examples/proto/generated/go/todo/todopbv1"
-	"github.com/machanirobotics/grpc-mcp-gateway/runtime"
+	"github.com/the-protobuf-project/grpc-mcp-gateway/examples/proto/generated/go/todo/todopbv1"
+	"github.com/the-protobuf-project/grpc-mcp-gateway/runtime"
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"

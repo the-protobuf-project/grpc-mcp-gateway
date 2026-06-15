@@ -1,10 +1,10 @@
 # mcp-protobuf
 
-Pre-compiled Protocol Buffer types for [grpc-mcp-gateway](https://github.com/machanirobotics/grpc-mcp-gateway) — the `mcp.protobuf` package containing MCP annotations for gRPC services.
+Pre-compiled Protocol Buffer types for [grpc-mcp-gateway](https://github.com/the-protobuf-project/grpc-mcp-gateway) — the `mcp.protobuf` package containing MCP annotations for gRPC services.
 
 ## Install
 
-Use the version matching the [grpc-mcp-gateway release](https://github.com/machanirobotics/grpc-mcp-gateway/releases) you use. See [crates.io](https://crates.io/crates/mcp-protobuf) for the current version.
+Use the version matching the [grpc-mcp-gateway release](https://github.com/the-protobuf-project/grpc-mcp-gateway/releases) you use. See [crates.io](https://crates.io/crates/mcp-protobuf) for the current version.
 
 ```bash
 cargo add mcp-protobuf
@@ -41,7 +41,7 @@ Import the crate to use MCP-annotated protos in your Rust project:
 use mcp_protobuf::*;
 ```
 
-When using [protoc-gen-mcp](https://github.com/machanirobotics/grpc-mcp-gateway) with `lang=rust`, the generated code will depend on this crate. Use the same version as your grpc-mcp-gateway release (see [crates.io](https://crates.io/crates/mcp-protobuf) for latest).
+When using [protoc-gen-mcp](https://github.com/the-protobuf-project/grpc-mcp-gateway) with `lang=rust`, the generated code will depend on this crate. Use the same version as your grpc-mcp-gateway release (see [crates.io](https://crates.io/crates/mcp-protobuf) for latest).
 
 ## Dependencies
 
@@ -50,6 +50,6 @@ When using [protoc-gen-mcp](https://github.com/machanirobotics/grpc-mcp-gateway)
 
 ## Links
 
-- **Source**: [github.com/machanirobotics/grpc-mcp-gateway](https://github.com/machanirobotics/grpc-mcp-gateway)
-- **Proto definitions**: [buf.build/machanirobotics/grpc-mcp-gateway](https://buf.build/machanirobotics/grpc-mcp-gateway)
+- **Source**: [github.com/the-protobuf-project/grpc-mcp-gateway](https://github.com/the-protobuf-project/grpc-mcp-gateway)
+- **Proto definitions**: [buf.build/the-protobuf-project/grpc-mcp-gateway](https://buf.build/the-protobuf-project/grpc-mcp-gateway)
 - **License**: Apache-2.0

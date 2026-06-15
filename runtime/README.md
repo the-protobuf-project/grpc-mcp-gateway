@@ -1,11 +1,11 @@
 # runtime
 
-Go runtime for [grpc-mcp-gateway](https://github.com/machanirobotics/grpc-mcp-gateway) — server configuration, transport handling, and MCP integration helpers.
+Go runtime for [grpc-mcp-gateway](https://github.com/the-protobuf-project/grpc-mcp-gateway) — server configuration, transport handling, and MCP integration helpers.
 
 ## Install
 
 ```bash
-go get github.com/machanirobotics/grpc-mcp-gateway/runtime
+go get github.com/the-protobuf-project/grpc-mcp-gateway/runtime
 ```
 
 ## Overview
@@ -33,7 +33,7 @@ import (
     "context"
     "log"
 
-    "github.com/machanirobotics/grpc-mcp-gateway/runtime"
+    "github.com/the-protobuf-project/grpc-mcp-gateway/runtime"
     "github.com/your/module/yourpb"
 )
 
@@ -127,6 +127,6 @@ if err != nil || result.Action != "accept" {
 
 ## Links
 
-- **Source**: [github.com/machanirobotics/grpc-mcp-gateway](https://github.com/machanirobotics/grpc-mcp-gateway)
-- **Examples**: [examples/go](https://github.com/machanirobotics/grpc-mcp-gateway/tree/main/examples/go)
+- **Source**: [github.com/the-protobuf-project/grpc-mcp-gateway](https://github.com/the-protobuf-project/grpc-mcp-gateway)
+- **Examples**: [examples/go](https://github.com/the-protobuf-project/grpc-mcp-gateway/tree/main/examples/go)
 - **License**: Apache-2.0

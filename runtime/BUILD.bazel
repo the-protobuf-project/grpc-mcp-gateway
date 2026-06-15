@@ -14,7 +14,7 @@ go_library(
         "server_endpoint.go",
         "stream.go",
     ],
-    importpath = "github.com/machanirobotics/grpc-mcp-gateway/runtime",
+    importpath = "github.com/the-protobuf-project/grpc-mcp-gateway/runtime",
     visibility = ["//visibility:public"],
     deps = [
         "//mcp/protobuf/mcppb",

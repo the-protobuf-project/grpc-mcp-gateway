@@ -110,7 +110,7 @@ const file_mcp_protobuf_field_proto_rawDesc = "" +
 	"deprecated\x12\x16\n" +
 	"\x06format\x18\x04 \x01(\tR\x06formatB`\n" +
 	"\x10com.mcp.protobufB\n" +
-	"FieldProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
+	"FieldProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
 	file_mcp_protobuf_field_proto_rawDescOnce sync.Once

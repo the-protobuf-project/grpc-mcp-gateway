@@ -24,14 +24,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18mcp/protobuf/field.proto\x12\x0cmcp.protobuf\"\x87\x01\n\x0fMCPFieldOptions\x12 \n\x0b\x64\x65scription\x18\x01 \x01(\tR\x0b\x64\x65scription\x12\x1a\n\x08\x65xamples\x18\x02 \x03(\tR\x08\x65xamples\x12\x1e\n\ndeprecated\x18\x03 \x01(\x08R\ndeprecated\x12\x16\n\x06\x66ormat\x18\x04 \x01(\tR\x06\x66ormatB`\n\x10\x63om.mcp.protobufB\nFieldProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18mcp/protobuf/field.proto\x12\x0cmcp.protobuf\"\x87\x01\n\x0fMCPFieldOptions\x12 \n\x0b\x64\x65scription\x18\x01 \x01(\tR\x0b\x64\x65scription\x12\x1a\n\x08\x65xamples\x18\x02 \x03(\tR\x08\x65xamples\x12\x1e\n\ndeprecated\x18\x03 \x01(\x08R\ndeprecated\x12\x16\n\x06\x66ormat\x18\x04 \x01(\tR\x06\x66ormatB`\n\x10\x63om.mcp.protobufB\nFieldProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'mcp.protobuf.field_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\nFieldProtoP\001Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\nFieldProtoP\001Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb'
   _globals['_MCPFIELDOPTIONS']._serialized_start=43
   _globals['_MCPFIELDOPTIONS']._serialized_end=178
 # @@protoc_insertion_point(module_scope)

@@ -19,7 +19,7 @@ go_library(
         "template.go",
         "tool_name.go",
     ],
-    importpath = "github.com/machanirobotics/grpc-mcp-gateway/plugin/generator",
+    importpath = "github.com/the-protobuf-project/grpc-mcp-gateway/plugin/generator",
     visibility = ["//visibility:public"],
     deps = [
         "//mcp/protobuf/mcppb",

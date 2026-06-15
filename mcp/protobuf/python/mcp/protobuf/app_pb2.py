@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16mcp/protobuf/app.proto\x12\x0cmcp.protobuf\x1a\x19google/api/resource.proto\"~\n\x06MCPApp\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n\x07version\x18\x02 \x01(\tR\x07version\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription:$\xea\x41!\n\x13mcp.protobuf/MCPApp\x12\napps/{app}B^\n\x10\x63om.mcp.protobufB\x08\x41ppProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x16mcp/protobuf/app.proto\x12\x0cmcp.protobuf\x1a\x19google/api/resource.proto\"~\n\x06MCPApp\x12\x12\n\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n\x07version\x18\x02 \x01(\tR\x07version\x12 \n\x0b\x64\x65scription\x18\x03 \x01(\tR\x0b\x64\x65scription:$\xea\x41!\n\x13mcp.protobuf/MCPApp\x12\napps/{app}B^\n\x10\x63om.mcp.protobufB\x08\x41ppProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'mcp.protobuf.app_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\010AppProtoP\001Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\010AppProtoP\001Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb'
   _globals['_MCPAPP']._loaded_options = None
   _globals['_MCPAPP']._serialized_options = b'\352A!\n\023mcp.protobuf/MCPApp\022\napps/{app}'
   _globals['_MCPAPP']._serialized_start=67

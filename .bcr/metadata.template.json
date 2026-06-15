@@ -1,13 +1,13 @@
 {
-	"homepage": "https://github.com/machanirobotics/grpc-mcp-gateway",
+	"homepage": "https://github.com/the-protobuf-project/grpc-mcp-gateway",
 	"maintainers": [
 		{
-			"name": "Machani Robotics",
-			"email": "develop@machanirobotics.com",
-			"github": "machanirobotics"
+			"name": "The Protobuf Project",
+			"email": "develop@the-protobuf-project.com",
+			"github": "the-protobuf-project"
 		}
 	],
-	"repository": ["github:machanirobotics/grpc-mcp-gateway"],
+	"repository": ["github:the-protobuf-project/grpc-mcp-gateway"],
 	"versions": [],
 	"yanked_versions": {}
 }

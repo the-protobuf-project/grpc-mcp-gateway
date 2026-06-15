@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from mcp.protobuf import mime_type_pb2 as mcp_dot_protobuf_dot_mime__type__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bmcp/protobuf/resource.proto\x12\x0cmcp.protobuf\x1a\x1cmcp/protobuf/mime_type.proto\"\xa7\x01\n\x0bMCPResource\x12\x10\n\x03uri\x18\x01 \x01(\tR\x03uri\x12\x18\n\x07pattern\x18\x02 \x01(\tR\x07pattern\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x04 \x01(\tR\x0b\x64\x65scription\x12\x36\n\tmime_type\x18\x05 \x01(\x0e\x32\x19.mcp.protobuf.MCPMimeTypeR\x08mimeTypeBc\n\x10\x63om.mcp.protobufB\rResourceProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1bmcp/protobuf/resource.proto\x12\x0cmcp.protobuf\x1a\x1cmcp/protobuf/mime_type.proto\"\xa7\x01\n\x0bMCPResource\x12\x10\n\x03uri\x18\x01 \x01(\tR\x03uri\x12\x18\n\x07pattern\x18\x02 \x01(\tR\x07pattern\x12\x12\n\x04name\x18\x03 \x01(\tR\x04name\x12 \n\x0b\x64\x65scription\x18\x04 \x01(\tR\x0b\x64\x65scription\x12\x36\n\tmime_type\x18\x05 \x01(\x0e\x32\x19.mcp.protobuf.MCPMimeTypeR\x08mimeTypeBc\n\x10\x63om.mcp.protobufB\rResourceProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'mcp.protobuf.resource_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\rResourceProtoP\001Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\rResourceProtoP\001Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb'
   _globals['_MCPRESOURCE']._serialized_start=76
   _globals['_MCPRESOURCE']._serialized_end=243
 # @@protoc_insertion_point(module_scope)

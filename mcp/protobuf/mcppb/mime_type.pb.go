@@ -118,7 +118,7 @@ const file_mcp_protobuf_mime_type_proto_rawDesc = "" +
 	"\x1dMCP_MIME_TYPE_APPLICATION_PDF\x10\a\x12\x1b\n" +
 	"\x17MCP_MIME_TYPE_IMAGE_PNG\x10\b\x12\x1c\n" +
 	"\x18MCP_MIME_TYPE_IMAGE_JPEG\x10\tBc\n" +
-	"\x10com.mcp.protobufB\rMimeTypeProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
+	"\x10com.mcp.protobufB\rMimeTypeProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
 	file_mcp_protobuf_mime_type_proto_rawDescOnce sync.Once

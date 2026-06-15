@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from mcp.protobuf import app_pb2 as mcp_dot_protobuf_dot_app__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"mcp/protobuf/service_options.proto\x12\x0cmcp.protobuf\x1a\x16mcp/protobuf/app.proto\";\n\x11MCPServiceOptions\x12&\n\x03\x61pp\x18\x01 \x01(\x0b\x32\x14.mcp.protobuf.MCPAppR\x03\x61ppBi\n\x10\x63om.mcp.protobufB\x13ServiceOptionsProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\"mcp/protobuf/service_options.proto\x12\x0cmcp.protobuf\x1a\x16mcp/protobuf/app.proto\";\n\x11MCPServiceOptions\x12&\n\x03\x61pp\x18\x01 \x01(\x0b\x32\x14.mcp.protobuf.MCPAppR\x03\x61ppBi\n\x10\x63om.mcp.protobufB\x13ServiceOptionsProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'mcp.protobuf.service_options_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\023ServiceOptionsProtoP\001Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\023ServiceOptionsProtoP\001Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb'
   _globals['_MCPSERVICEOPTIONS']._serialized_start=76
   _globals['_MCPSERVICEOPTIONS']._serialized_end=135
 # @@protoc_insertion_point(module_scope)

@@ -97,7 +97,7 @@ const file_mcp_protobuf_app_proto_rawDesc = "" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription:$\xeaA!\n" +
 	"\x13mcp.protobuf/MCPApp\x12\n" +
 	"apps/{app}B^\n" +
-	"\x10com.mcp.protobufB\bAppProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
+	"\x10com.mcp.protobufB\bAppProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
 	file_mcp_protobuf_app_proto_rawDescOnce sync.Once

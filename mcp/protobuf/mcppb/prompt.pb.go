@@ -181,7 +181,7 @@ const file_mcp_protobuf_prompt_proto_rawDesc = "" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x1f\n" +
 	"\bprogress\x18\x03 \x01(\bH\x00R\bprogress\x88\x01\x01B\v\n" +
 	"\t_progressBa\n" +
-	"\x10com.mcp.protobufB\vPromptProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
+	"\x10com.mcp.protobufB\vPromptProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
 	file_mcp_protobuf_prompt_proto_rawDescOnce sync.Once

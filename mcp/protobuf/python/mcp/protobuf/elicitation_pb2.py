@@ -24,14 +24,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1emcp/protobuf/elicitation.proto\x12\x0cmcp.protobuf\"B\n\x0eMCPElicitation\x12\x18\n\x07message\x18\x01 \x01(\tR\x07message\x12\x16\n\x06schema\x18\x02 \x01(\tR\x06schemaBf\n\x10\x63om.mcp.protobufB\x10\x45licitationProtoP\x01Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1emcp/protobuf/elicitation.proto\x12\x0cmcp.protobuf\"B\n\x0eMCPElicitation\x12\x18\n\x07message\x18\x01 \x01(\tR\x07message\x12\x16\n\x06schema\x18\x02 \x01(\tR\x06schemaBf\n\x10\x63om.mcp.protobufB\x10\x45licitationProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'mcp.protobuf.elicitation_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\020ElicitationProtoP\001Z>github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb'
+  _globals['DESCRIPTOR']._serialized_options = b'\n\020com.mcp.protobufB\020ElicitationProtoP\001Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb'
   _globals['_MCPELICITATION']._serialized_start=48
   _globals['_MCPELICITATION']._serialized_end=114
 # @@protoc_insertion_point(module_scope)

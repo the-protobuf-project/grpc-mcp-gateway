@@ -1,4 +1,4 @@
-module github.com/machanirobotics/grpc-mcp-gateway
+module github.com/the-protobuf-project/grpc-mcp-gateway
 
 go 1.25.6
 

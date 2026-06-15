@@ -24,7 +24,7 @@ jobs:
       tag_name: ${{ inputs.tag_name || github.event.release.tag_name }}
       # Fork of bazelbuild/bazel-central-registry that the PR is pushed from.
       # Create this fork once under the org before the first release.
-      registry_fork: machanirobotics/bazel-central-registry
+      registry_fork: the-protobuf-project/bazel-central-registry
       # Attestations require the source archive as a release asset uploaded in
       # the same run. The Release workflow uploads only binaries, so disable
       # for now; enable once a source archive is attached to the release.

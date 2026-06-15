@@ -26,7 +26,7 @@ Protos live in `proto/todo/v1/` and `proto/counter/v1/`, importing MCP annotatio
 ```yaml
 # buf.yaml
 deps:
-  - buf.build/machanirobotics/grpc-mcp-gateway
+  - buf.build/the-protobuf-project/grpc-mcp-gateway
 ```
 
 **TodoService** (`proto/todo/v1/todo_service.proto`):
@@ -84,14 +84,14 @@ Clients request progress by including `progressToken` in `params._meta` when cal
 - **`mcp.protobuf.enum`** / **`mcp.protobuf.enum_value`** — enum-level and per-value descriptions
 - **`google.api.resource`** — auto-detected MCP resources from AIP resource annotations
 
-**CounterService** uses `progress: true` on the tool option and the oneof layout above. See [Progress](https://github.com/machanirobotics/grpc-mcp-gateway#progress-server-streaming) in the main README for details.
+**CounterService** uses `progress: true` on the tool option and the oneof layout above. See [Progress](https://github.com/the-protobuf-project/grpc-mcp-gateway#progress-server-streaming) in the main README for details.
 
 ## Code Generation
 
 Install the plugin and generate code for all languages:
 
 ```bash
-go install github.com/machanirobotics/grpc-mcp-gateway/plugin/cmd/protoc-gen-mcp@latest
+go install github.com/the-protobuf-project/grpc-mcp-gateway/plugin/cmd/protoc-gen-mcp@latest
 
 cd examples
 buf generate

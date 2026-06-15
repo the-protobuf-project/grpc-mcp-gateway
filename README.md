@@ -16,13 +16,13 @@
   <a href="https://pypi.org/project/grpc-mcp-gateway-protos">
     <img src="https://img.shields.io/pypi/v/grpc-mcp-gateway-protos?logo=python&label=PyPI" />
   </a>
-  <a href="https://pkg.go.dev/github.com/machanirobotics/grpc-mcp-gateway">
-    <img src="https://pkg.go.dev/badge/github.com/machanirobotics/grpc-mcp-gateway.svg" />
+  <a href="https://pkg.go.dev/github.com/the-protobuf-project/grpc-mcp-gateway">
+    <img src="https://pkg.go.dev/badge/github.com/the-protobuf-project/grpc-mcp-gateway.svg" />
   </a>
   <a href="https://crates.io/crates/mcp-protobuf">
     <img src="https://img.shields.io/crates/v/mcp-protobuf?logo=rust&label=crates.io" />
   </a>
-  <a href="https://buf.build/machanirobotics/grpc-mcp-gateway">
+  <a href="https://buf.build/the-protobuf-project/grpc-mcp-gateway">
     <img src="https://img.shields.io/badge/BSR-buf.build%2Fmachanirobotics%2Fgrpc--mcp--gateway-blue" />
   </a>
 </p>
@@ -45,7 +45,7 @@ gRPC infrastructure as:
 Built with a **spec-first approach**, it ensures full compliance with the
 Model Context Protocol while keeping your system strongly typed and scalable.
 
-Open-sourced by **Machani Robotics**, this project bridges traditional backend systems with AI-native platforms.
+Open-sourced by **The Protobuf Project**, this project bridges traditional backend systems with AI-native platforms.
 
 A `protoc` plugin and runtime that turns any gRPC service into a fully spec-compliant [Model Context Protocol](https://modelcontextprotocol.io/) server — tools, prompts, resources, and elicitation — in Go, Python, Rust, and C++.
 
@@ -61,7 +61,7 @@ A `protoc` plugin and runtime that turns any gRPC service into a fully spec-comp
 - **Elicitation** — Generate confirmation dialogs before tool execution via `(mcp.protobuf.elicitation)`
 - **Transports** — stdio, SSE, and streamable-http — run multiple concurrently in a single process
 - **gRPC Gateway** — Forward MCP tool calls to a remote gRPC server (Go)
-- **Published Protos** — Import annotations from [`buf.build/machanirobotics/grpc-mcp-gateway`](https://buf.build/machanirobotics/grpc-mcp-gateway), or install pre-compiled types from [PyPI](https://pypi.org/project/grpc-mcp-gateway-protos/) / [crates.io](https://crates.io/crates/mcp-protobuf)
+- **Published Protos** — Import annotations from [`buf.build/the-protobuf-project/grpc-mcp-gateway`](https://buf.build/the-protobuf-project/grpc-mcp-gateway), or install pre-compiled types from [PyPI](https://pypi.org/project/grpc-mcp-gateway-protos/) / [crates.io](https://crates.io/crates/mcp-protobuf)
 
 | Language   | Generated File                     | Example                              |
 | ---------- | ---------------------------------- | ------------------------------------ |
@@ -116,10 +116,10 @@ sequenceDiagram
 ### Plugin
 
 ```bash
-go install github.com/machanirobotics/grpc-mcp-gateway/plugin/cmd/protoc-gen-mcp@latest
+go install github.com/the-protobuf-project/grpc-mcp-gateway/plugin/cmd/protoc-gen-mcp@latest
 ```
 
-Or download a binary from [GitHub Releases](https://github.com/machanirobotics/grpc-mcp-gateway/releases).
+Or download a binary from [GitHub Releases](https://github.com/the-protobuf-project/grpc-mcp-gateway/releases).
 
 ### Pre-compiled proto types
 
@@ -127,7 +127,7 @@ The MCP annotation types (`mcp.protobuf.*`) are published as pre-compiled librar
 
 | Language   | Package                                                                        | Install                                                                 |
 | ---------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
-| **Go**     | [`mcp/protobuf/mcppb`](mcp/protobuf/README.md)                                 | `go get github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb` |
+| **Go**     | [`mcp/protobuf/mcppb`](mcp/protobuf/README.md)                                 | `go get github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb` |
 | **Python** | [`grpc-mcp-gateway-protos`](https://pypi.org/project/grpc-mcp-gateway-protos/) | `pip install grpc-mcp-gateway-protos==1.5.3`                            |
 | **Rust**   | [`mcp-protobuf`](https://crates.io/crates/mcp-protobuf)                        | `cargo add mcp-protobuf@1.5.3`                                          |
 
@@ -138,7 +138,7 @@ The MCP annotation types (`mcp.protobuf.*`) are published as pre-compiled librar
 import mcp.protobuf.annotations_pb2  # noqa: F401
 ```
 
-**Rust** ([crates.io](https://crates.io/crates/mcp-protobuf)) — Add to `Cargo.toml`; use the version matching the [latest release](https://github.com/machanirobotics/grpc-mcp-gateway/releases):
+**Rust** ([crates.io](https://crates.io/crates/mcp-protobuf)) — Add to `Cargo.toml`; use the version matching the [latest release](https://github.com/the-protobuf-project/grpc-mcp-gateway/releases):
 
 ```toml
 [dependencies]
@@ -154,7 +154,7 @@ mcp-protobuf = "1.5.63"   # or cargo add mcp-protobuf for latest
 version: v2
 deps:
   - buf.build/googleapis/googleapis
-  - buf.build/machanirobotics/grpc-mcp-gateway
+  - buf.build/the-protobuf-project/grpc-mcp-gateway
 ```
 
 ```bash
@@ -272,7 +272,7 @@ MCP_TRANSPORT=stdio npx @modelcontextprotocol/inspector -- ./server
 
 ## MCP Annotations
 
-All annotations are imported from `mcp/protobuf/annotations.proto` ([BSR](https://buf.build/machanirobotics/grpc-mcp-gateway)).
+All annotations are imported from `mcp/protobuf/annotations.proto` ([BSR](https://buf.build/the-protobuf-project/grpc-mcp-gateway)).
 
 ### Service-level: `mcp.protobuf.service`
 
@@ -489,7 +489,7 @@ MCP_TRANSPORT=stdio,streamable-http cargo run --bin http
 ### Go runtime configuration
 
 ```go
-import "github.com/machanirobotics/grpc-mcp-gateway/runtime"
+import "github.com/the-protobuf-project/grpc-mcp-gateway/runtime"
 
 cfg := &runtime.MCPServerConfig{
     Name:       "my-service",
