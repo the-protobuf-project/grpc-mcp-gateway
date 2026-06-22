@@ -6,7 +6,7 @@ from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from todo.v1 import todo_pb2 as todo_dot_v1_dot_todo__pb2
 
 
-class TodoServiceStub(object):
+class TodoServiceStub:
     """Service for managing todo items.
     """
 
@@ -43,7 +43,7 @@ class TodoServiceStub(object):
                 _registered_method=True)
 
 
-class TodoServiceServicer(object):
+class TodoServiceServicer:
     """Service for managing todo items.
     """
 
@@ -118,7 +118,7 @@ def add_TodoServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class TodoService(object):
+class TodoService:
     """Service for managing todo items.
     """
 

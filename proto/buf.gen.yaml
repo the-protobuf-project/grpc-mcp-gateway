@@ -4,7 +4,7 @@ plugins:
   - local: protoc-gen-go
     out: ..
     opt:
-      - module=github.com/the-protobuf-project/grpc-mcp-gateway
+      - module=github.com/the-protobuf-project/mcp
   # --- Python (pre-compiled, published as grpc-mcp-gateway-protos on PyPI) ---
   - remote: buf.build/protocolbuffers/python
     out: ../mcp/protobuf/python

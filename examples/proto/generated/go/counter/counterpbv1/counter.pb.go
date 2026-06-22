@@ -7,7 +7,7 @@
 package counterpbv1
 
 import (
-	_ "github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb"
+	_ "github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -124,8 +124,8 @@ const file_counter_v1_counter_proto_rawDesc = "" +
 	"\x02to\x18\x01 \x01(\x05BQ\xe2\xf3\x18M\n" +
 	"DCount from 0 up to this number. Progress updates are sent each step.\x12\x015\x12\x0210R\x02to\"%\n" +
 	"\rCountResponse\x12\x14\n" +
-	"\x05count\x18\x01 \x01(\x05R\x05countB\x89\x01\n" +
-	"\x0ecom.counter.v1B\fCounterProtoP\x01Zggithub.com/machanirobotics/grpc-mcp-gateway/examples/proto/generated/go/counter/counterpbv1;counterpbv1b\x06proto3"
+	"\x05count\x18\x01 \x01(\x05R\x05countB\x8e\x01\n" +
+	"\x0ecom.counter.v1B\fCounterProtoP\x01Zlgithub.com/the-protobuf-project/grpc-mcp-gateway/examples/proto/generated/go/counter/counterpbv1;counterpbv1b\x06proto3"
 
 var (
 	file_counter_v1_counter_proto_rawDescOnce sync.Once

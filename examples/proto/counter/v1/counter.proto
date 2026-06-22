@@ -14,7 +14,7 @@ import "mcp/protobuf/field.proto";
 message CountRequest {
   // The number to count up to (e.g. 10).
   int32 to = 1 [
-    (mcp.protobuf.field) = {
+    (mcp.field) = {
       description: "Count from 0 up to this number. Progress updates are sent each step."
       examples: "5"
       examples: "10"

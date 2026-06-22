@@ -1,7 +1,7 @@
 version: v2
 modules:
   - path: .
-    name: buf.build/the-protobuf-project/grpc-mcp-gateway
+    name: buf.build/the-protobuf-project/mcp
 deps:
   - buf.build/googleapis/googleapis
 lint:

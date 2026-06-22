@@ -7,7 +7,7 @@
 package todopbv1
 
 import (
-	_ "github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb"
+	_ "github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -397,8 +397,8 @@ const file_todo_v1_todo_mcp_proto_rawDesc = "" +
 	"#PRIORITIZATION_STRATEGY_UNSPECIFIED\x10\x00\x12#\n" +
 	"\x1fPRIORITIZATION_STRATEGY_URGENCY\x10\x01\x12$\n" +
 	" PRIORITIZATION_STRATEGY_DEADLINE\x10\x02\x12\"\n" +
-	"\x1ePRIORITIZATION_STRATEGY_EFFORT\x10\x03B\x81\x01\n" +
-	"\vcom.todo.v1B\x10TodoServiceProtoP\x01Z^github.com/machanirobotics/grpc-mcp-gateway/examples/proto/generated/go/todo/todopbv1;todopbv1b\x06proto3"
+	"\x1ePRIORITIZATION_STRATEGY_EFFORT\x10\x03B\x86\x01\n" +
+	"\vcom.todo.v1B\x10TodoServiceProtoP\x01Zcgithub.com/the-protobuf-project/grpc-mcp-gateway/examples/proto/generated/go/todo/todopbv1;todopbv1b\x06proto3"
 
 var (
 	file_todo_v1_todo_mcp_proto_rawDescOnce sync.Once

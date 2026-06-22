@@ -6,7 +6,7 @@ from counter.v1 import counter_pb2 as counter_dot_v1_dot_counter__pb2
 from counter.v1 import counter_service_pb2 as counter_dot_v1_dot_counter__service__pb2
 
 
-class CounterServiceStub(object):
+class CounterServiceStub:
     """Counter service demonstrates MCP progress via server streaming.
     """
 
@@ -23,7 +23,7 @@ class CounterServiceStub(object):
                 _registered_method=True)
 
 
-class CounterServiceServicer(object):
+class CounterServiceServicer:
     """Counter service demonstrates MCP progress via server streaming.
     """
 
@@ -50,7 +50,7 @@ def add_CounterServiceServicer_to_server(servicer, server):
 
 
  # This class is part of an EXPERIMENTAL API.
-class CounterService(object):
+class CounterService:
     """Counter service demonstrates MCP progress via server streaming.
     """
 

@@ -2,8 +2,8 @@
 version: v2
 deps:
   - name: buf.build/googleapis/googleapis
-    commit: 004180b77378443887d3b55cabc00384
-    digest: b5:e8f475fe3330f31f5fd86ac689093bcd274e19611a09db91f41d637cb9197881ce89882b94d13a58738e53c91c6e4bae7dc1feba85f590164c975a89e25115dc
-  - name: buf.build/the-protobuf-project/grpc-mcp-gateway
-    commit: d877c5d47e504aa3a777994b2519a4c0
-    digest: b5:61fc98c6d2177807bf2032faf3be9302f2ca334fcbf2904e4eb1946093dc46ceda0221b8681a72ee3f27d3276bb4b1731f0d84efd7e3a03ed5f5b42b43c45d38
+    commit: c17df5b2beca46928cc87d5656bd5343
+    digest: b5:648a01e0170d4512dea7d564016165decd1ed6e34bef79fe54753e51ad7e27545709ad9157d7551270147d551155c595a2fb0bf5bb33b1c83040ddbce915c604
+  - name: buf.build/the-protobuf-project/mcp
+    commit: d8286d36a0cc4df5bf65e342195ab82d
+    digest: b5:8355c7cb9f258ad16c9be3641ded547acaa1717243cd11c345c370b242f092c2e573f55d82c9a81a6a852421d0e84ccee8881dca73f15660eed7044ef0e24ac5

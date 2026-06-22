@@ -13,7 +13,7 @@ import "counter/v1/counter.proto";
 
 // Counter service demonstrates MCP progress via server streaming.
 service CounterService {
-  option (mcp.protobuf.service) = {
+  option (mcp.service) = {
     app: {
       name: "Counter App"
       version: "1.0.0"
@@ -23,7 +23,7 @@ service CounterService {
 
   // Counts from 0 up to the requested number, streaming progress updates.
   rpc Count(CountRequest) returns (stream CountStreamChunk) {
-    option (mcp.protobuf.tool) = {
+    option (mcp.tool) = {
       description: "Counts from 0 up to the given number. Sends progress updates as it counts. Use with progressToken in _meta for progress notifications."
       progress: true
     };
@@ -33,7 +33,7 @@ service CounterService {
 // Stream chunk sent during Count: either progress or the final result.
 message CountStreamChunk {
   oneof payload {
-    mcp.protobuf.MCPProgress progress = 1;
+    mcp.MCPProgress progress = 1;
     CountResponse result = 2;
   }
 }

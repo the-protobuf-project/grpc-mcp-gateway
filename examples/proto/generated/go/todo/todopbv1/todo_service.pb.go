@@ -7,7 +7,7 @@
 package todopbv1
 
 import (
-	_ "github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb"
+	_ "github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
@@ -27,7 +27,7 @@ var File_todo_v1_todo_service_proto protoreflect.FileDescriptor
 
 const file_todo_v1_todo_service_proto_rawDesc = "" +
 	"\n" +
-	"\x1atodo/v1/todo_service.proto\x12\atodo.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1emcp/protobuf/annotations.proto\x1a\x12todo/v1/todo.proto2\xbe\r\n" +
+	"\x1atodo/v1/todo_service.proto\x12\atodo.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1emcp/protobuf/annotations.proto\x1a\x12todo/v1/todo.proto2\xc3\r\n" +
 	"\vTodoService\x12\xe4\x02\n" +
 	"\n" +
 	"CreateTodo\x12\x1a.todo.v1.CreateTodoRequest\x1a\r.todo.v1.Todo\"\xaa\x02\xdaA\x13parent,todo,todo_id\xca\xf3\x18\x91\x01\x12\x8e\x01Creates a new todo item under a user. Requires parent (e.g. users/alice), a todo object with title/description/priority, and a unique todo_id.\xda\xf3\x18R\n" +
@@ -41,10 +41,10 @@ const file_todo_v1_todo_service_proto_rawDesc = "" +
 	"-Please confirm the changes to this todo item.\x12\x1etodo.v1.UpdateTodoConfirmation\x82\xd3\xe4\x93\x02':\x04todo2\x1f/v1/{todo.name=users/*/todos/*}\x12\xb3\x02\n" +
 	"\n" +
 	"DeleteTodo\x12\x1a.todo.v1.DeleteTodoRequest\x1a\x16.google.protobuf.Empty\"\xf0\x01\xdaA\x04name\xca\xf3\x18U\x12SPermanently deletes a todo item by its resource name. This action cannot be undone.\xda\xf3\x18j\n" +
-	"HAre you sure you want to delete this todo? This action cannot be undone.\x12\x1etodo.v1.DeleteTodoConfirmation\x82\xd3\xe4\x93\x02\x1c*\x1a/v1/{name=users/*/todos/*}\x1a[\xcaA\x1bmachanirobotics.app.todo.v1\xc2\xf3\x189\n" +
+	"HAre you sure you want to delete this todo? This action cannot be undone.\x12\x1etodo.v1.DeleteTodoConfirmation\x82\xd3\xe4\x93\x02\x1c*\x1a/v1/{name=users/*/todos/*}\x1a`\xcaA the-protobuf-project.app.todo.v1\xc2\xf3\x189\n" +
 	"7\n" +
-	"\bTodo App\x12\x051.0.0\x1a$A simple todo management applicationB\x81\x01\n" +
-	"\vcom.todo.v1B\x10TodoServiceProtoP\x01Z^github.com/machanirobotics/grpc-mcp-gateway/examples/proto/generated/go/todo/todopbv1;todopbv1b\x06proto3"
+	"\bTodo App\x12\x051.0.0\x1a$A simple todo management applicationB\x86\x01\n" +
+	"\vcom.todo.v1B\x10TodoServiceProtoP\x01Zcgithub.com/the-protobuf-project/grpc-mcp-gateway/examples/proto/generated/go/todo/todopbv1;todopbv1b\x06proto3"
 
 var file_todo_v1_todo_service_proto_goTypes = []any{
 	(*CreateTodoRequest)(nil), // 0: todo.v1.CreateTodoRequest

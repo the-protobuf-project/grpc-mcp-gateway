@@ -29,7 +29,7 @@ message User {
   // Format: users/{user}
   string name = 1 [
     (google.api.field_behavior) = IDENTIFIER,
-    (mcp.protobuf.field) = { description: "The resource name of the user. You can parse the user id from the resource name." }
+    (mcp.field) = { description: "The resource name of the user. You can parse the user id from the resource name." }
   ];
 
   // The display name of the user.
@@ -49,25 +49,25 @@ message Todo {
   // Format: users/{user}/todos/{todo}
   string name = 1 [
     (google.api.field_behavior) = IDENTIFIER,
-    (mcp.protobuf.field) = { description: "Resource name (e.g. users/alice/todos/abc123). Required when updating." }
+    (mcp.field) = { description: "Resource name (e.g. users/alice/todos/abc123). Required when updating." }
   ];
   
   // The title of the todo item.
   string title = 2 [
     (google.api.field_behavior) = OPTIONAL,
-    (mcp.protobuf.field) = { description: "Short title for the todo." }
+    (mcp.field) = { description: "Short title for the todo." }
   ];
   
   // The detailed description of the todo item.
   string description = 3 [
     (google.api.field_behavior) = OPTIONAL,
-    (mcp.protobuf.field) = { description: "Optional longer description or notes." }
+    (mcp.field) = { description: "Optional longer description or notes." }
   ];
   
   // Whether the todo item is completed.
   bool completed = 4 [
     (google.api.field_behavior) = OPTIONAL,
-    (mcp.protobuf.field) = { description: "Whether the todo is done." }
+    (mcp.field) = { description: "Whether the todo is done." }
   ];
   
   // The priority level of the todo item.
@@ -87,7 +87,7 @@ message CreateTodoRequest {
   string parent = 1 [
     (google.api.field_behavior) = REQUIRED,
     (google.api.resource_reference) = { child_type: "the-protobuf-project.app.todo.v1/Todo" },
-    (mcp.protobuf.field) = {
+    (mcp.field) = {
       description: "Parent resource name (e.g. users/alice). The todo will be created under this user."
     }
   ];
@@ -98,7 +98,7 @@ message CreateTodoRequest {
   // The ID to use for the todo, which will become the final component of the resource name.
   string todo_id = 3 [
     (google.api.field_behavior) = REQUIRED,
-    (mcp.protobuf.field) = {
+    (mcp.field) = {
       description: "Unique ID for the todo (e.g. abc123). Becomes the final segment of the resource name."
       examples: "abc123"
       examples: "todo-001"
@@ -114,7 +114,7 @@ message GetTodoRequest {
   string name = 1 [
     (google.api.field_behavior) = REQUIRED,
     (google.api.resource_reference) = { type: "the-protobuf-project.app.todo.v1/Todo" },
-    (mcp.protobuf.field) = {
+    (mcp.field) = {
       description: "Resource name of the todo (e.g. users/alice/todos/abc123)."
       examples: "users/alice/todos/abc123"
       format: "uri"
@@ -130,19 +130,19 @@ message ListTodosRequest {
   string parent = 1 [
     (google.api.field_behavior) = REQUIRED,
     (google.api.resource_reference) = { child_type: "the-protobuf-project.app.todo.v1/Todo" },
-    (mcp.protobuf.field) = { description: "Parent resource name (e.g. users/alice). Lists todos for this user." }
+    (mcp.field) = { description: "Parent resource name (e.g. users/alice). Lists todos for this user." }
   ];
   
   // The maximum number of todos to return.
   int32 page_size = 2 [
     (google.api.field_behavior) = OPTIONAL,
-    (mcp.protobuf.field) = { description: "Max number of todos to return (default 50)." }
+    (mcp.field) = { description: "Max number of todos to return (default 50)." }
   ];
   
   // The page token for pagination.
   string page_token = 3 [
     (google.api.field_behavior) = OPTIONAL,
-    (mcp.protobuf.field) = { description: "Token from previous response for next page." }
+    (mcp.field) = { description: "Token from previous response for next page." }
   ];
 }
 
@@ -163,7 +163,7 @@ message UpdateTodoRequest {
   // The update mask specifying which fields to update.
   google.protobuf.FieldMask update_mask = 2 [
     (google.api.field_behavior) = OPTIONAL,
-    (mcp.protobuf.field) = { description: "Comma-separated field names to update (e.g. title,completed). Omit to update all provided fields." }
+    (mcp.field) = { description: "Comma-separated field names to update (e.g. title,completed). Omit to update all provided fields." }
   ];
 }
 
@@ -174,26 +174,26 @@ message DeleteTodoRequest {
   string name = 1 [
     (google.api.field_behavior) = REQUIRED,
     (google.api.resource_reference) = { type: "the-protobuf-project.app.todo.v1/Todo" },
-    (mcp.protobuf.field) = { description: "Resource name of the todo to delete (e.g. users/alice/todos/abc123)." }
+    (mcp.field) = { description: "Resource name of the todo to delete (e.g. users/alice/todos/abc123)." }
   ];
 }
 
 // Priority levels for todo items.
 enum Priority {
-  option (mcp.protobuf.enum) = { description: "Priority level for a todo item." };
+  option (mcp.enum) = { description: "Priority level for a todo item." };
 
   // Priority not specified.
-  PRIORITY_UNSPECIFIED = 0 [(mcp.protobuf.enum_value) = { description: "Unspecified; use default priority." }];
+  PRIORITY_UNSPECIFIED = 0 [(mcp.enum_value) = { description: "Unspecified; use default priority." }];
 
   // Low priority todo item.
-  PRIORITY_LOW = 1 [(mcp.protobuf.enum_value) = { description: "Low priority; can be done when convenient." }];
+  PRIORITY_LOW = 1 [(mcp.enum_value) = { description: "Low priority; can be done when convenient." }];
 
   // Medium priority todo item.
-  PRIORITY_MEDIUM = 2 [(mcp.protobuf.enum_value) = { description: "Normal priority; default for most todos." }];
+  PRIORITY_MEDIUM = 2 [(mcp.enum_value) = { description: "Normal priority; default for most todos." }];
 
   // High priority todo item.
-  PRIORITY_HIGH = 3 [(mcp.protobuf.enum_value) = { description: "High priority; should be done soon." }];
+  PRIORITY_HIGH = 3 [(mcp.enum_value) = { description: "High priority; should be done soon." }];
 
   // Urgent priority todo item.
-  PRIORITY_URGENT = 4 [(mcp.protobuf.enum_value) = { description: "Urgent; do first." }];
+  PRIORITY_URGENT = 4 [(mcp.enum_value) = { description: "Urgent; do first." }];
 }
