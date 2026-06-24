@@ -22,7 +22,7 @@
   <a href="https://crates.io/crates/mcp-protobuf">
     <img src="https://img.shields.io/crates/v/mcp-protobuf?logo=rust&label=crates.io" />
   </a>
-  <a href="https://buf.build/the-protobuf-project/grpc-mcp-gateway">
+  <a href="https://buf.build/the-protobuf-project/mcp">
     <img src="https://img.shields.io/badge/BSR-buf.build%2Fthe-protobuf-project%2Fgrpc--mcp--gateway-blue" />
   </a>
 </p>
@@ -61,7 +61,7 @@ A `protoc` plugin and runtime that turns any gRPC service into a fully spec-comp
 - **Elicitation** — Generate confirmation dialogs before tool execution via `(mcp.protobuf.elicitation)`
 - **Transports** — stdio, SSE, and streamable-http — run multiple concurrently in a single process
 - **gRPC Gateway** — Forward MCP tool calls to a remote gRPC server (Go)
-- **Published Protos** — Import annotations from [`buf.build/the-protobuf-project/grpc-mcp-gateway`](https://buf.build/the-protobuf-project/grpc-mcp-gateway), or install pre-compiled types from [PyPI](https://pypi.org/project/grpc-mcp-gateway-protos/) / [crates.io](https://crates.io/crates/mcp-protobuf)
+- **Published Protos** — Import annotations from [`buf.build/the-protobuf-project/mcp`](https://buf.build/the-protobuf-project/mcp), or install pre-compiled types from [PyPI](https://pypi.org/project/grpc-mcp-gateway-protos/) / [crates.io](https://crates.io/crates/mcp-protobuf)
 
 | Language   | Generated File                     | Example                              |
 | ---------- | ---------------------------------- | ------------------------------------ |
@@ -154,7 +154,7 @@ mcp-protobuf = "1.5.63"   # or cargo add mcp-protobuf for latest
 version: v2
 deps:
   - buf.build/googleapis/googleapis
-  - buf.build/the-protobuf-project/grpc-mcp-gateway
+  - buf.build/the-protobuf-project/mcp
 ```
 
 ```bash
@@ -272,7 +272,7 @@ MCP_TRANSPORT=stdio npx @modelcontextprotocol/inspector -- ./server
 
 ## MCP Annotations
 
-All annotations are imported from `mcp/protobuf/annotations.proto` ([BSR](https://buf.build/the-protobuf-project/grpc-mcp-gateway)).
+All annotations are imported from `mcp/protobuf/annotations.proto` ([BSR](https://buf.build/the-protobuf-project/mcp)).
 
 ### Service-level: `mcp.protobuf.service`
 

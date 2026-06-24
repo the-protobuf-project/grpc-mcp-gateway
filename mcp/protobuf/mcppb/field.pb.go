@@ -108,9 +108,9 @@ const file_mcp_protobuf_field_proto_rawDesc = "" +
 	"\n" +
 	"deprecated\x18\x03 \x01(\bR\n" +
 	"deprecated\x12\x16\n" +
-	"\x06format\x18\x04 \x01(\tR\x06formatB`\n" +
+	"\x06format\x18\x04 \x01(\tR\x06formatBe\n" +
 	"\x10com.mcp.protobufB\n" +
-	"FieldProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
+	"FieldProtoP\x01ZCgithub.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
 	file_mcp_protobuf_field_proto_rawDescOnce sync.Once

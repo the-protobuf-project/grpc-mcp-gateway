@@ -160,10 +160,10 @@ func (g *RustFileGenerator) buildRsParams() RsTplParams {
 				ConstName:       toScreamingSnakeCase(key),
 				ToolName:        toolName,
 				Description:     desc,
-				MethodOpts:     methOpts,
+				MethodOpts:      methOpts,
 				StreamProgress:  streamProgress,
-				RequestType:    reqType,
-				ResponseType:   respType,
+				RequestType:     reqType,
+				ResponseType:    respType,
 				StreamChunkType: streamChunkType,
 			}
 		}

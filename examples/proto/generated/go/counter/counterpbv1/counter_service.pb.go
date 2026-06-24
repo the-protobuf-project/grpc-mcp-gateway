@@ -7,7 +7,7 @@
 package counterpbv1
 
 import (
-	mcppb "github.com/machanirobotics/grpc-mcp-gateway/mcp/protobuf/mcppb"
+	mcppb "github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -110,16 +110,16 @@ var File_counter_v1_counter_service_proto protoreflect.FileDescriptor
 const file_counter_v1_counter_service_proto_rawDesc = "" +
 	"\n" +
 	" counter/v1/counter_service.proto\x12\n" +
-	"counter.v1\x1a\x1emcp/protobuf/annotations.proto\x1a\x1bmcp/protobuf/progress.proto\x1a\x18counter/v1/counter.proto\"\x8b\x01\n" +
-	"\x10CountStreamChunk\x127\n" +
-	"\bprogress\x18\x01 \x01(\v2\x19.mcp.protobuf.MCPProgressH\x00R\bprogress\x123\n" +
+	"counter.v1\x1a\x1emcp/protobuf/annotations.proto\x1a\x1bmcp/protobuf/progress.proto\x1a\x18counter/v1/counter.proto\"\x82\x01\n" +
+	"\x10CountStreamChunk\x12.\n" +
+	"\bprogress\x18\x01 \x01(\v2\x10.mcp.MCPProgressH\x00R\bprogress\x123\n" +
 	"\x06result\x18\x02 \x01(\v2\x19.counter.v1.CountResponseH\x00R\x06resultB\t\n" +
 	"\apayload2\xb8\x02\n" +
 	"\x0eCounterService\x12\xd4\x01\n" +
 	"\x05Count\x12\x18.counter.v1.CountRequest\x1a\x1c.counter.v1.CountStreamChunk\"\x90\x01\xca\xf3\x18\x8b\x01\x12\x86\x01Counts from 0 up to the given number. Sends progress updates as it counts. Use with progressToken in _meta for progress notifications.\x18\x010\x01\x1aO\xc2\xf3\x18K\n" +
 	"I\n" +
-	"\vCounter App\x12\x051.0.0\x1a3A simple counter that streams progress as it countsB\x90\x01\n" +
-	"\x0ecom.counter.v1B\x13CounterServiceProtoP\x01Zggithub.com/machanirobotics/grpc-mcp-gateway/examples/proto/generated/go/counter/counterpbv1;counterpbv1b\x06proto3"
+	"\vCounter App\x12\x051.0.0\x1a3A simple counter that streams progress as it countsB\x95\x01\n" +
+	"\x0ecom.counter.v1B\x13CounterServiceProtoP\x01Zlgithub.com/the-protobuf-project/grpc-mcp-gateway/examples/proto/generated/go/counter/counterpbv1;counterpbv1b\x06proto3"
 
 var (
 	file_counter_v1_counter_service_proto_rawDescOnce sync.Once
@@ -136,12 +136,12 @@ func file_counter_v1_counter_service_proto_rawDescGZIP() []byte {
 var file_counter_v1_counter_service_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_counter_v1_counter_service_proto_goTypes = []any{
 	(*CountStreamChunk)(nil),  // 0: counter.v1.CountStreamChunk
-	(*mcppb.MCPProgress)(nil), // 1: mcp.protobuf.MCPProgress
+	(*mcppb.MCPProgress)(nil), // 1: mcp.MCPProgress
 	(*CountResponse)(nil),     // 2: counter.v1.CountResponse
 	(*CountRequest)(nil),      // 3: counter.v1.CountRequest
 }
 var file_counter_v1_counter_service_proto_depIdxs = []int32{
-	1, // 0: counter.v1.CountStreamChunk.progress:type_name -> mcp.protobuf.MCPProgress
+	1, // 0: counter.v1.CountStreamChunk.progress:type_name -> mcp.MCPProgress
 	2, // 1: counter.v1.CountStreamChunk.result:type_name -> counter.v1.CountResponse
 	3, // 2: counter.v1.CounterService.Count:input_type -> counter.v1.CountRequest
 	0, // 3: counter.v1.CounterService.Count:output_type -> counter.v1.CountStreamChunk

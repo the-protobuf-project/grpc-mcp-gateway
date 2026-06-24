@@ -1,6 +1,6 @@
 # grpc-mcp-gateway
 
-[![BSR](https://img.shields.io/badge/BSR-buf.build%2Fthe-protobuf-project%2Fgrpc--mcp--gateway-blue)](https://buf.build/the-protobuf-project/grpc-mcp-gateway)
+[![BSR](https://img.shields.io/badge/BSR-buf.build%2Fthe-protobuf-project%2Fgrpc--mcp--gateway-blue)](https://buf.build/the-protobuf-project/mcp)
 
 Protobuf annotations for exposing gRPC services as [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) servers.
 
@@ -11,7 +11,7 @@ Add this module as a dependency in your `buf.yaml`:
 ```yaml
 version: v2
 deps:
-  - buf.build/the-protobuf-project/grpc-mcp-gateway
+  - buf.build/the-protobuf-project/mcp
 ```
 
 Then run:

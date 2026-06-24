@@ -125,8 +125,8 @@ const file_mcp_protobuf_enum_proto_rawDesc = "" +
 	"\x0eMCPEnumOptions\x12 \n" +
 	"\vdescription\x18\x01 \x01(\tR\vdescription\"7\n" +
 	"\x13MCPEnumValueOptions\x12 \n" +
-	"\vdescription\x18\x01 \x01(\tR\vdescriptionB_\n" +
-	"\x10com.mcp.protobufB\tEnumProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
+	"\vdescription\x18\x01 \x01(\tR\vdescriptionBd\n" +
+	"\x10com.mcp.protobufB\tEnumProtoP\x01ZCgithub.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
 	file_mcp_protobuf_enum_proto_rawDescOnce sync.Once

@@ -25,7 +25,7 @@ pub mod count_stream_chunk {
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     pub enum Payload {
         #[prost(message, tag="1")]
-        Progress(super::super::super::mcp::protobuf::McpProgress),
+        Progress(super::super::super::mcp::McpProgress),
         #[prost(message, tag="2")]
         Result(super::CountResponse),
     }

@@ -42,9 +42,9 @@ type TplParams struct {
 	ToolMeta          map[string]ToolMeta
 	Services          map[string]map[string]MethodInfo
 	ServiceBasePaths  map[string]string          // key: ServiceName -> default base path e.g. "/todo/v1/TodoService"
-	ServiceOpts       map[string]*MCPServiceOpts  // key: ServiceName
-	HasStreamProgress bool                        // true if any method uses server streaming with progress
-	HasAnyMethods     bool                        // true if any service has any methods (needed for grpc/protojson imports)
+	ServiceOpts       map[string]*MCPServiceOpts // key: ServiceName
+	HasStreamProgress bool                       // true if any method uses server streaming with progress
+	HasAnyMethods     bool                       // true if any service has any methods (needed for grpc/protojson imports)
 }
 
 // FileGenerator produces a single *.pb.mcp.go file from a protobuf file.

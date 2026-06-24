@@ -52,5 +52,5 @@ dependencies = [
 ## Links
 
 - **Source**: [github.com/the-protobuf-project/grpc-mcp-gateway](https://github.com/the-protobuf-project/grpc-mcp-gateway)
-- **Proto definitions**: [buf.build/the-protobuf-project/grpc-mcp-gateway](https://buf.build/the-protobuf-project/grpc-mcp-gateway)
+- **Proto definitions**: [buf.build/the-protobuf-project/mcp](https://buf.build/the-protobuf-project/mcp)
 - **License**: Apache-2.0

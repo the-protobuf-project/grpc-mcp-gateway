@@ -18,7 +18,7 @@ import "todo/v1/todo.proto";
 // Service for managing todo items.
 service TodoService {
   option (google.api.default_host) = "the-protobuf-project.app.todo.v1";
-  option (mcp.protobuf.service) = {
+  option (mcp.service) = {
     app: {
       name: "Todo App"
       version: "1.0.0"
@@ -33,10 +33,10 @@ service TodoService {
       body: "todo"
     };
     option (google.api.method_signature) = "parent,todo,todo_id";
-    option (mcp.protobuf.tool) = {
+    option (mcp.tool) = {
       description: "Creates a new todo item under a user. Requires parent (e.g. users/alice), a todo object with title/description/priority, and a unique todo_id."
     };
-    option (mcp.protobuf.elicitation) = {
+    option (mcp.elicitation) = {
       message: "Please confirm the todo details before creating."
       schema: "todo.v1.CreateTodoConfirmation"
     };
@@ -48,10 +48,10 @@ service TodoService {
       get: "/v1/{name=users/*/todos/*}"
     };
     option (google.api.method_signature) = "name";
-    option (mcp.protobuf.tool) = {
+    option (mcp.tool) = {
       description: "Retrieves a single todo item by its resource name (e.g. users/alice/todos/abc123)."
     };
-    option (mcp.protobuf.prompt) = {
+    option (mcp.prompt) = {
       name: "summarize_todos"
       description: "Summarize all pending todo items for a user"
       schema: "todo.v1.SummarizeTodosArgs"
@@ -64,10 +64,10 @@ service TodoService {
       get: "/v1/{parent=users/*}/todos"
     };
     option (google.api.method_signature) = "parent";
-    option (mcp.protobuf.tool) = {
+    option (mcp.tool) = {
       description: "Lists all todo items for a user. Supports pagination via page_size and page_token."
     };
-    option (mcp.protobuf.prompt) = {
+    option (mcp.prompt) = {
       name: "prioritize_todos"
       description: "Suggest a priority ordering for a user's incomplete todos"
       schema: "todo.v1.PrioritizeTodosArgs"
@@ -81,10 +81,10 @@ service TodoService {
       body: "todo"
     };
     option (google.api.method_signature) = "todo,update_mask";
-    option (mcp.protobuf.tool) = {
+    option (mcp.tool) = {
       description: "Updates an existing todo item. Send the todo with its resource name and the fields to update. Use update_mask to specify which fields to modify."
     };
-    option (mcp.protobuf.elicitation) = {
+    option (mcp.elicitation) = {
       message: "Please confirm the changes to this todo item."
       schema: "todo.v1.UpdateTodoConfirmation"
     };
@@ -96,10 +96,10 @@ service TodoService {
       delete: "/v1/{name=users/*/todos/*}"
     };
     option (google.api.method_signature) = "name";
-    option (mcp.protobuf.tool) = {
+    option (mcp.tool) = {
       description: "Permanently deletes a todo item by its resource name. This action cannot be undone."
     };
-    option (mcp.protobuf.elicitation) = {
+    option (mcp.elicitation) = {
       message: "Are you sure you want to delete this todo? This action cannot be undone."
       schema: "todo.v1.DeleteTodoConfirmation"
     };

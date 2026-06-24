@@ -26,7 +26,7 @@ Protos live in `proto/todo/v1/` and `proto/counter/v1/`, importing MCP annotatio
 ```yaml
 # buf.yaml
 deps:
-  - buf.build/the-protobuf-project/grpc-mcp-gateway
+  - buf.build/the-protobuf-project/mcp
 ```
 
 **TodoService** (`proto/todo/v1/todo_service.proto`):

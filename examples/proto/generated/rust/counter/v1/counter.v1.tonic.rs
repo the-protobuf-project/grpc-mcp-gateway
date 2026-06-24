@@ -10,8 +10,6 @@ pub mod counter_service_client {
     )]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
-    /** Counter service demonstrates MCP progress via server streaming.
-*/
     #[derive(Debug, Clone)]
     pub struct CounterServiceClient<T> {
         inner: tonic::client::Grpc<T>,
@@ -142,8 +140,6 @@ pub mod counter_service_server {
             request: tonic::Request<super::CountRequest>,
         ) -> std::result::Result<tonic::Response<Self::CountStream>, tonic::Status>;
     }
-    /** Counter service demonstrates MCP progress via server streaming.
-*/
     #[derive(Debug)]
     pub struct CounterServiceServer<T> {
         inner: Arc<T>,

@@ -73,8 +73,8 @@ const file_mcp_protobuf_service_options_proto_rawDesc = "" +
 	"\n" +
 	"\"mcp/protobuf/service_options.proto\x12\fmcp.protobuf\x1a\x16mcp/protobuf/app.proto\";\n" +
 	"\x11MCPServiceOptions\x12&\n" +
-	"\x03app\x18\x01 \x01(\v2\x14.mcp.protobuf.MCPAppR\x03appBi\n" +
-	"\x10com.mcp.protobufB\x13ServiceOptionsProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
+	"\x03app\x18\x01 \x01(\v2\x14.mcp.protobuf.MCPAppR\x03appBn\n" +
+	"\x10com.mcp.protobufB\x13ServiceOptionsProtoP\x01ZCgithub.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
 	file_mcp_protobuf_service_options_proto_rawDescOnce sync.Once

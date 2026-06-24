@@ -3,4 +3,4 @@ modules:
   - path: proto
 deps:
   - buf.build/googleapis/googleapis
-  - buf.build/the-protobuf-project/grpc-mcp-gateway
+  - buf.build/the-protobuf-project/mcp

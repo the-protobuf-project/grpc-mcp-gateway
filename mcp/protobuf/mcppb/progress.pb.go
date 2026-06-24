@@ -125,8 +125,8 @@ const file_mcp_protobuf_progress_proto_rawDesc = "" +
 	"\bprogress\x18\x01 \x01(\x01R\bprogress\x12\x19\n" +
 	"\x05total\x18\x02 \x01(\x01H\x00R\x05total\x88\x01\x01\x12\x18\n" +
 	"\amessage\x18\x03 \x01(\tR\amessageB\b\n" +
-	"\x06_totalBc\n" +
-	"\x10com.mcp.protobufB\rProgressProtoP\x01Z>github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
+	"\x06_totalBh\n" +
+	"\x10com.mcp.protobufB\rProgressProtoP\x01ZCgithub.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
 	file_mcp_protobuf_progress_proto_rawDescOnce sync.Once

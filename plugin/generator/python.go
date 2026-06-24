@@ -15,13 +15,13 @@ import (
 
 // PyMethodInfo carries Python-specific type identifiers for a single RPC method.
 type PyMethodInfo struct {
-	PyMethodName     string // snake_case method name
-	PyRequestType    string // e.g. todo_pb2.CreateTodoRequest
-	PyResponseType   string // e.g. todo_pb2.Todo
+	PyMethodName      string // snake_case method name
+	PyRequestType     string // e.g. todo_pb2.CreateTodoRequest
+	PyResponseType    string // e.g. todo_pb2.Todo
 	PyStreamChunkType string // for streaming: e.g. counter_service_pb2.CountStreamChunk
-	ToolName         string // MCP tool name
-	MethodOpts       *MCPMethodOpts
-	StreamProgress   *StreamProgressInfo // Non-nil when server-streaming with MCPProgress
+	ToolName          string // MCP tool name
+	MethodOpts        *MCPMethodOpts
+	StreamProgress    *StreamProgressInfo // Non-nil when server-streaming with MCPProgress
 }
 
 // ElicitationSchemaConst holds a pre-serialised JSON Schema for a single elicitation message.
