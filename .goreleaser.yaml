@@ -1,0 +1,147 @@
+version: 2
+project_name: protoc-gen-mcp
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: protoc-gen-mcp
+    binary: protoc-gen-mcp
+    main: ./plugin/cmd/protoc-gen-mcp
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    flags:
+      - -trimpath
+    # main.go only consumes main.version (commit/date are not wired in).
+    ldflags:
+      - -s -w -X main.version=v{{.Version}}
+
+archives:
+  - id: protoc-gen-mcp-archive
+    ids:
+      - protoc-gen-mcp
+    formats: [tar.gz]
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- .Version }}_
+      {{- .Os }}_
+      {{- if eq .Arch "amd64" }}amd64
+      {{- else if eq .Arch "arm64" }}arm64
+      {{- else }}{{ .Arch }}{{ end }}
+    files:
+      - LICENSE
+      - README.md
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+
+checksum:
+  name_template: 'checksums.txt'
+
+snapshot:
+  version_template: '{{ incpatch .Version }}-next'
+
+changelog:
+  sort: asc
+  use: github
+  groups:
+    - title: Features
+      regexp: '^.*?feat(\([[:word:]]+\))??!?:.+$'
+      order: 0
+    - title: 'Bug Fixes'
+      regexp: '^.*?fix(\([[:word:]]+\))??!?:.+$'
+      order: 1
+    - title: 'Performance Improvements'
+      regexp: '^.*?perf(\([[:word:]]+\))??!?:.+$'
+      order: 2
+    - title: Others
+      order: 999
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - '^chore:'
+      - typo
+
+# Homebrew cask, generated and committed to the tap on each release. The url +
+# sha256 for every platform are filled in automatically from the archives below.
+# Requires a HOMEBREW_TAP_GITHUB_TOKEN secret with push access to the tap repo.
+homebrew_casks:
+  - name: protoc-gen-mcp
+    repository:
+      owner: the-protobuf-project
+      name: homebrew-tap
+      token: '{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}'
+    directory: Casks
+    homepage: 'https://github.com/the-protobuf-project/grpc-mcp-gateway'
+    description: 'Protoc plugin generating MCP server code (Go, Python, Rust, C++) from Protobuf + gRPC definitions'
+    ids:
+      - protoc-gen-mcp-archive
+    binaries:
+      - protoc-gen-mcp
+    url:
+      verified: 'github.com/the-protobuf-project/grpc-mcp-gateway/'
+    hooks:
+      post:
+        install: |
+          if OS.mac?
+            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/protoc-gen-mcp"]
+          end
+
+release:
+  github:
+    owner: the-protobuf-project
+    name: grpc-mcp-gateway
+  draft: false
+  prerelease: auto
+  name_template: 'v{{.Version}}'
+  header: |
+    ## grpc-mcp-gateway v{{.Version}}
+
+    `protoc-gen-mcp` generates MCP (Model Context Protocol) server code from your
+    gRPC/Protobuf service definitions. Download the binary for your platform below.
+
+    ### Installation
+
+    #### Homebrew
+    ```bash
+    brew install the-protobuf-project/tap/protoc-gen-mcp
+    ```
+
+    #### Go install (plugin)
+    ```bash
+    go install github.com/the-protobuf-project/grpc-mcp-gateway/plugin/cmd/protoc-gen-mcp@v{{.Version}}
+    ```
+
+    #### Manual (macOS / Linux)
+    ```bash
+    # Pick your platform, e.g. darwin_arm64 / linux_amd64
+    curl -LO https://github.com/the-protobuf-project/grpc-mcp-gateway/releases/download/v{{.Version}}/protoc-gen-mcp_{{.Version}}_darwin_arm64.tar.gz
+    tar -xzf protoc-gen-mcp_{{.Version}}_darwin_arm64.tar.gz
+    sudo mv protoc-gen-mcp /usr/local/bin/
+    ```
+
+    #### Proto annotations
+    The MCP proto annotations are published to the Buf Schema Registry; add them
+    as a dependency and generate types in your own client:
+    ```yaml
+    # buf.yaml
+    deps:
+      - buf.build/the-protobuf-project/mcp
+    ```
+
+    Then reference the plugin from `buf.gen.yaml`:
+    ```yaml
+    plugins:
+      - local: protoc-gen-mcp
+        out: generated
+        opt: [lang=go]   # go | python | rust | cpp | all
+    ```

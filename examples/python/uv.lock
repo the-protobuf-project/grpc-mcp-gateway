@@ -176,17 +176,6 @@ wheels = [
 ]
 
 [[package]]
-name = "grpc-mcp-gateway-protos"
-version = "1.5.3"
-source = { directory = "../../mcp/protobuf/python" }
-dependencies = [
-    { name = "protobuf" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "protobuf", specifier = ">=7.34.1" }]
-
-[[package]]
 name = "grpcio"
 version = "1.80.0"
 source = { registry = "https://pypi.org/simple" }
@@ -528,7 +517,6 @@ source = { virtual = "." }
 dependencies = [
     { name = "anyio" },
     { name = "googleapis-common-protos" },
-    { name = "grpc-mcp-gateway-protos" },
     { name = "grpcio" },
     { name = "grpcio-reflection" },
     { name = "mcp" },
@@ -541,7 +529,6 @@ dependencies = [
 requires-dist = [
     { name = "anyio", specifier = ">=4.13.0" },
     { name = "googleapis-common-protos", specifier = ">=1.74.0" },
-    { name = "grpc-mcp-gateway-protos", directory = "../../mcp/protobuf/python" },
     { name = "grpcio", specifier = ">=1.78.0" },
     { name = "grpcio-reflection", specifier = ">=1.80.0" },
     { name = "mcp", specifier = ">=1.27.0" },

@@ -17,16 +17,6 @@ updates:
       - "go"
 
   - package-ecosystem: "cargo"
-    directory: "/mcp/protobuf/rust"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "rust"
-
-  - package-ecosystem: "cargo"
     directory: "/examples/rust"
     schedule:
       interval: "weekly"
@@ -47,16 +37,6 @@ updates:
       - "dependencies"
       - "rust"
       - "cpp"
-
-  - package-ecosystem: "pip"
-    directory: "/mcp/protobuf/python"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-    open-pull-requests-limit: 5
-    labels:
-      - "dependencies"
-      - "python"
 
   - package-ecosystem: "pip"
     directory: "/examples/python"

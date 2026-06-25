@@ -13,14 +13,8 @@
   <a href="https://go.dev/">
     <img src="https://img.shields.io/badge/Go-1.25+-00ADD8?logo=go" />
   </a>
-  <a href="https://pypi.org/project/grpc-mcp-gateway-protos">
-    <img src="https://img.shields.io/pypi/v/grpc-mcp-gateway-protos?logo=python&label=PyPI" />
-  </a>
   <a href="https://pkg.go.dev/github.com/the-protobuf-project/grpc-mcp-gateway">
     <img src="https://pkg.go.dev/badge/github.com/the-protobuf-project/grpc-mcp-gateway.svg" />
-  </a>
-  <a href="https://crates.io/crates/mcp-protobuf">
-    <img src="https://img.shields.io/crates/v/mcp-protobuf?logo=rust&label=crates.io" />
   </a>
   <a href="https://buf.build/the-protobuf-project/mcp">
     <img src="https://img.shields.io/badge/BSR-buf.build%2Fthe-protobuf-project%2Fgrpc--mcp--gateway-blue" />
@@ -61,7 +55,7 @@ A `protoc` plugin and runtime that turns any gRPC service into a fully spec-comp
 - **Elicitation** — Generate confirmation dialogs before tool execution via `(mcp.elicitation)`
 - **Transports** — stdio, SSE, and streamable-http — run multiple concurrently in a single process
 - **gRPC Gateway** — Forward MCP tool calls to a remote gRPC server (Go)
-- **Published Protos** — Import annotations from [`buf.build/the-protobuf-project/mcp`](https://buf.build/the-protobuf-project/mcp), or install pre-compiled types from [PyPI](https://pypi.org/project/grpc-mcp-gateway-protos/) / [crates.io](https://crates.io/crates/mcp-protobuf)
+- **Published Protos** — Import the MCP annotations from [`buf.build/the-protobuf-project/mcp`](https://buf.build/the-protobuf-project/mcp) and generate the types in your own client
 
 | Language   | Generated File                     | Example                              |
 | ---------- | ---------------------------------- | ------------------------------------ |
@@ -121,29 +115,18 @@ go install github.com/the-protobuf-project/grpc-mcp-gateway/plugin/cmd/protoc-ge
 
 Or download a binary from [GitHub Releases](https://github.com/the-protobuf-project/grpc-mcp-gateway/releases).
 
-### Pre-compiled proto types
+### MCP annotation types
 
-The MCP annotation types (`mcp.*`) are published as pre-compiled libraries so generated code can resolve its imports at runtime — just like `googleapis-common-protos` for Google API types.
+The MCP annotation types (`mcp.*`) are needed at runtime so generated code can
+resolve its imports — just like `googleapis-common-protos` for Google API types.
 
-| Language   | Package                                                                        | Install                                                                 |
-| ---------- | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
-| **Go**     | [`mcp/protobuf/mcppb`](mcp/protobuf/README.md)                                 | `go get github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb` |
-| **Python** | [`grpc-mcp-gateway-protos`](https://pypi.org/project/grpc-mcp-gateway-protos/) | `pip install grpc-mcp-gateway-protos==1.5.3`                            |
-| **Rust**   | [`mcp-protobuf`](https://crates.io/crates/mcp-protobuf)                        | `cargo add mcp-protobuf@1.5.3`                                          |
-
-**Python** ([PyPI](https://pypi.org/project/grpc-mcp-gateway-protos/)) — Add to your project and import to register proto extensions:
-
-```python
-# Required for MCP-annotated protos
-import mcp.annotations_pb2  # noqa: F401
-```
-
-**Rust** ([crates.io](https://crates.io/crates/mcp-protobuf)) — Add to `Cargo.toml`; use the version matching the [latest release](https://github.com/the-protobuf-project/grpc-mcp-gateway/releases):
-
-```toml
-[dependencies]
-mcp-protobuf = "1.5.63"   # or cargo add mcp-protobuf for latest
-```
+- **Go** — pre-compiled and shipped as part of this module:
+  [`mcp/protobuf/mcppb`](mcp/protobuf/README.md)
+  (`go get github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb`).
+- **Other languages** — add the published Buf module as a dependency and
+  generate the types in your own client (see [Quick Start](#quick-start) below).
+  Nothing extra to install: the annotations come from
+  [`buf.build/the-protobuf-project/mcp`](https://buf.build/the-protobuf-project/mcp).
 
 ## Quick Start
 
@@ -405,10 +388,8 @@ grpc-mcp-gateway/
 ├── go.work                         # Workspace (root + examples)
 ├── proto/                          # Publishable buf module (BSR)
 │   └── mcp/protobuf/              # MCP annotation .proto source files
-├── mcp/protobuf/                  # Pre-compiled proto libraries
-│   ├── mcppb/                     # Go (.pb.go) — see [mcp/protobuf/README.md](mcp/protobuf/README.md)
-│   ├── python/                    # Python (PyPI: grpc-mcp-gateway-protos)
-│   └── rust/                      # Rust (crates.io: mcp-protobuf)
+├── mcp/protobuf/                  # Pre-compiled Go proto types
+│   └── mcppb/                     # Go (.pb.go) — see [mcp/protobuf/README.md](mcp/protobuf/README.md)
 ├── runtime/                       # Go runtime — [README](runtime/README.md)
 ├── plugin/
 │   ├── cmd/protoc-gen-mcp/        # Plugin binary (go install target)
