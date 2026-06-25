@@ -99,9 +99,12 @@ The generated code (`todo_service_pb2_mcp.py`) provides:
 
 ## Dependencies
 
+The `mcp.protobuf` annotation types are generated client-side and vendored under
+[`../proto/generated/python/mcp`](../proto/generated/python/mcp) — no external
+package dependency.
+
 | Package | Purpose |
 | --------------------- | ----------------------------------- |
-| `grpc-mcp-gateway-protos` | MCP annotation types (`mcp.protobuf`) — uses local path in this repo |
 | `mcp` | MCP Python SDK (FastMCP + low-level) |
 | `protobuf` | Protocol Buffers runtime |
 | `grpcio` | gRPC runtime |
