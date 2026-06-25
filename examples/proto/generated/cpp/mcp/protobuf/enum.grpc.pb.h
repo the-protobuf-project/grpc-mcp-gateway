@@ -27,9 +27,7 @@
 #include <grpcpp/ports_def.inc>
 
 namespace mcp {
-namespace protobuf {
 
-}  // namespace protobuf
 }  // namespace mcp
 
 

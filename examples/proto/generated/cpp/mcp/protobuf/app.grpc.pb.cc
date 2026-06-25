@@ -21,9 +21,7 @@
 #include <grpcpp/support/sync_stream.h>
 #include <grpcpp/ports_def.inc>
 namespace mcp {
-namespace protobuf {
 
 }  // namespace mcp
-}  // namespace protobuf
 #include <grpcpp/ports_undef.inc>
 
