@@ -1,7 +1,5 @@
 pub mod mcp {
-    pub mod protobuf {
-        include!("gen/mcp/protobuf/mcp.protobuf.rs");
-    }
+    include!("gen/mcp/mcp.rs");
 }
 
-pub use mcp::protobuf::*;
+pub use mcp::*;

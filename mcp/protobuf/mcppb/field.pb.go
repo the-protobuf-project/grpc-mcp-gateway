@@ -22,7 +22,7 @@ const (
 )
 
 // MCPFieldOptions attaches JSON Schema metadata to a message field.
-// Used as: option (mcp.protobuf.field) = { description: "...", examples: [...], ... };
+// Used as: option (mcp.field) = { description: "...", examples: [...], ... };
 // These appear in the MCP tool inputSchema for that field.
 type MCPFieldOptions struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -101,7 +101,7 @@ var File_mcp_protobuf_field_proto protoreflect.FileDescriptor
 
 const file_mcp_protobuf_field_proto_rawDesc = "" +
 	"\n" +
-	"\x18mcp/protobuf/field.proto\x12\fmcp.protobuf\"\x87\x01\n" +
+	"\x18mcp/protobuf/field.proto\x12\x03mcp\"\x87\x01\n" +
 	"\x0fMCPFieldOptions\x12 \n" +
 	"\vdescription\x18\x01 \x01(\tR\vdescription\x12\x1a\n" +
 	"\bexamples\x18\x02 \x03(\tR\bexamples\x12\x1e\n" +
@@ -126,7 +126,7 @@ func file_mcp_protobuf_field_proto_rawDescGZIP() []byte {
 
 var file_mcp_protobuf_field_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_mcp_protobuf_field_proto_goTypes = []any{
-	(*MCPFieldOptions)(nil), // 0: mcp.protobuf.MCPFieldOptions
+	(*MCPFieldOptions)(nil), // 0: mcp.MCPFieldOptions
 }
 var file_mcp_protobuf_field_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

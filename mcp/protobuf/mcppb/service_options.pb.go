@@ -71,9 +71,9 @@ var File_mcp_protobuf_service_options_proto protoreflect.FileDescriptor
 
 const file_mcp_protobuf_service_options_proto_rawDesc = "" +
 	"\n" +
-	"\"mcp/protobuf/service_options.proto\x12\fmcp.protobuf\x1a\x16mcp/protobuf/app.proto\";\n" +
-	"\x11MCPServiceOptions\x12&\n" +
-	"\x03app\x18\x01 \x01(\v2\x14.mcp.protobuf.MCPAppR\x03appBn\n" +
+	"\"mcp/protobuf/service_options.proto\x12\x03mcp\x1a\x16mcp/protobuf/app.proto\"2\n" +
+	"\x11MCPServiceOptions\x12\x1d\n" +
+	"\x03app\x18\x01 \x01(\v2\v.mcp.MCPAppR\x03appBn\n" +
 	"\x10com.mcp.protobufB\x13ServiceOptionsProtoP\x01ZCgithub.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
@@ -90,11 +90,11 @@ func file_mcp_protobuf_service_options_proto_rawDescGZIP() []byte {
 
 var file_mcp_protobuf_service_options_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_mcp_protobuf_service_options_proto_goTypes = []any{
-	(*MCPServiceOptions)(nil), // 0: mcp.protobuf.MCPServiceOptions
-	(*MCPApp)(nil),            // 1: mcp.protobuf.MCPApp
+	(*MCPServiceOptions)(nil), // 0: mcp.MCPServiceOptions
+	(*MCPApp)(nil),            // 1: mcp.MCPApp
 }
 var file_mcp_protobuf_service_options_proto_depIdxs = []int32{
-	1, // 0: mcp.protobuf.MCPServiceOptions.app:type_name -> mcp.protobuf.MCPApp
+	1, // 0: mcp.MCPServiceOptions.app:type_name -> mcp.MCPApp
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

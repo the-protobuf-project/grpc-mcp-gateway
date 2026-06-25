@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package mcp.protobuf;
+package mcp;
 
 option go_package = "github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb";
 option java_multiple_files = true;
@@ -8,14 +8,14 @@ option java_outer_classname = "ElicitationProto";
 option java_package = "com.mcp.protobuf";
 
 // MCPElicitation defines a confirmation dialog shown to the user before
-// a tool executes. Used as: option (mcp.protobuf.elicitation) = { ... };
+// a tool executes. Used as: option (mcp.elicitation) = { ... };
 //
 // The form schema is a fully-qualified proto message name. The generator
 // reads that message's fields, types, enums, comments, and field_behavior
 // annotations to build a type-safe elicitation form.
 //
 // Example:
-//   option (mcp.protobuf.elicitation) = {
+//   option (mcp.elicitation) = {
 //     message: "Please confirm before deleting."
 //     schema: "todo.v1.DeleteConfirmation"
 //   };

@@ -211,7 +211,7 @@ func (g *PythonFileGenerator) buildPyParams() PyTplParams {
 	}
 
 	// Collect elicitation schema constants from all messages in this file
-	// that carry at least one (mcp.protobuf.field) annotation.
+	// that carry at least one (mcp.field) annotation.
 	elicitSeen := make(map[string]bool)
 	elicitSchemas := collectElicitSchemas(g.gen, g.f.Messages, elicitSeen)
 	sort.Slice(elicitSchemas, func(i, j int) bool {
@@ -232,7 +232,7 @@ func (g *PythonFileGenerator) buildPyParams() PyTplParams {
 }
 
 // hasElicitMessages reports whether any message in msgs (recursively) has at least one
-// field annotated with (mcp.protobuf.field).
+// field annotated with (mcp.field).
 func hasElicitMessages(msgs []*protogen.Message) bool {
 	for _, m := range msgs {
 		for _, f := range m.Fields {
@@ -248,7 +248,7 @@ func hasElicitMessages(msgs []*protogen.Message) bool {
 }
 
 // collectElicitSchemas recursively walks msgs and returns an ElicitationSchemaConst for every
-// message that has at least one (mcp.protobuf.field) annotated field.
+// message that has at least one (mcp.field) annotated field.
 // seen is used to deduplicate by fully-qualified message name.
 func collectElicitSchemas(gen *protogen.Plugin, msgs []*protogen.Message, seen map[string]bool) []ElicitationSchemaConst {
 	var result []ElicitationSchemaConst

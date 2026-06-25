@@ -1,6 +1,6 @@
 # mcp/protobuf (Go)
 
-Pre-compiled Protocol Buffer types for [grpc-mcp-gateway](https://github.com/the-protobuf-project/grpc-mcp-gateway) — the `mcp.protobuf` package containing MCP annotations for gRPC services.
+Pre-compiled Protocol Buffer types for [grpc-mcp-gateway](https://github.com/the-protobuf-project/grpc-mcp-gateway) — the `mcp` package containing MCP annotations for gRPC services.
 
 ## Install
 
@@ -34,12 +34,12 @@ package myapp.v1;
 import "mcp/protobuf/annotations.proto";
 
 service MyService {
-  option (mcp.protobuf.service) = {
+  option (mcp.service) = {
     app: { name: "My App" version: "1.0.0" description: "..." }
   };
 
   rpc DoSomething(DoSomethingRequest) returns (DoSomethingResponse) {
-    option (mcp.protobuf.tool) = {
+    option (mcp.tool) = {
       description: "Does something useful."
     };
   }

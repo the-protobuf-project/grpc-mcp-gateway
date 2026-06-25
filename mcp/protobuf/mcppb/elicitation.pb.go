@@ -22,7 +22,7 @@ const (
 )
 
 // MCPElicitation defines a confirmation dialog shown to the user before
-// a tool executes. Used as: option (mcp.protobuf.elicitation) = { ... };
+// a tool executes. Used as: option (mcp.elicitation) = { ... };
 //
 // The form schema is a fully-qualified proto message name. The generator
 // reads that message's fields, types, enums, comments, and field_behavior
@@ -30,7 +30,7 @@ const (
 //
 // Example:
 //
-//	option (mcp.protobuf.elicitation) = {
+//	option (mcp.elicitation) = {
 //	  message: "Please confirm before deleting."
 //	  schema: "todo.v1.DeleteConfirmation"
 //	};
@@ -94,7 +94,7 @@ var File_mcp_protobuf_elicitation_proto protoreflect.FileDescriptor
 
 const file_mcp_protobuf_elicitation_proto_rawDesc = "" +
 	"\n" +
-	"\x1emcp/protobuf/elicitation.proto\x12\fmcp.protobuf\"B\n" +
+	"\x1emcp/protobuf/elicitation.proto\x12\x03mcp\"B\n" +
 	"\x0eMCPElicitation\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage\x12\x16\n" +
 	"\x06schema\x18\x02 \x01(\tR\x06schemaBk\n" +
@@ -114,7 +114,7 @@ func file_mcp_protobuf_elicitation_proto_rawDescGZIP() []byte {
 
 var file_mcp_protobuf_elicitation_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_mcp_protobuf_elicitation_proto_goTypes = []any{
-	(*MCPElicitation)(nil), // 0: mcp.protobuf.MCPElicitation
+	(*MCPElicitation)(nil), // 0: mcp.MCPElicitation
 }
 var file_mcp_protobuf_elicitation_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

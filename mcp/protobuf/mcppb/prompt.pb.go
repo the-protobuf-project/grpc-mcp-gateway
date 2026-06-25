@@ -100,7 +100,7 @@ func (x *MCPPrompt) GetSchema() string {
 }
 
 // MCPToolOptions configures an individual RPC method as an MCP tool.
-// Used as: option (mcp.protobuf.tool) = { ... };
+// Used as: option (mcp.tool) = { ... };
 type MCPToolOptions struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Override the auto-generated MCP tool name.
@@ -110,7 +110,7 @@ type MCPToolOptions struct {
 	// When true, this RPC supports MCP progress notifications. Clients may include
 	// progressToken in params._meta; the server will send progress updates during
 	// execution. Requires a server-streaming RPC whose response has a oneof with
-	// mcp.protobuf.MCPProgress and the result type.
+	// mcp.MCPProgress and the result type.
 	Progress      *bool `protobuf:"varint,3,opt,name=progress,proto3,oneof" json:"progress,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -171,7 +171,7 @@ var File_mcp_protobuf_prompt_proto protoreflect.FileDescriptor
 
 const file_mcp_protobuf_prompt_proto_rawDesc = "" +
 	"\n" +
-	"\x19mcp/protobuf/prompt.proto\x12\fmcp.protobuf\"Y\n" +
+	"\x19mcp/protobuf/prompt.proto\x12\x03mcp\"Y\n" +
 	"\tMCPPrompt\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x16\n" +
@@ -197,8 +197,8 @@ func file_mcp_protobuf_prompt_proto_rawDescGZIP() []byte {
 
 var file_mcp_protobuf_prompt_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_mcp_protobuf_prompt_proto_goTypes = []any{
-	(*MCPPrompt)(nil),      // 0: mcp.protobuf.MCPPrompt
-	(*MCPToolOptions)(nil), // 1: mcp.protobuf.MCPToolOptions
+	(*MCPPrompt)(nil),      // 0: mcp.MCPPrompt
+	(*MCPToolOptions)(nil), // 1: mcp.MCPToolOptions
 }
 var file_mcp_protobuf_prompt_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

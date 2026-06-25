@@ -47,7 +47,7 @@ pub struct McpPrompt {
     pub schema: ::prost::alloc::string::String,
 }
 /// MCPToolOptions configures an individual RPC method as an MCP tool.
-/// Used as: option (mcp.protobuf.tool) = { ... };
+/// Used as: option (mcp.tool) = { ... };
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct McpToolOptions {
     /// Override the auto-generated MCP tool name.
@@ -59,19 +59,19 @@ pub struct McpToolOptions {
     /// When true, this RPC supports MCP progress notifications. Clients may include
     /// progressToken in params._meta; the server will send progress updates during
     /// execution. Requires a server-streaming RPC whose response has a oneof with
-    /// mcp.protobuf.MCPProgress and the result type.
+    /// mcp.MCPProgress and the result type.
     #[prost(bool, optional, tag="3")]
     pub progress: ::core::option::Option<bool>,
 }
 /// MCPElicitation defines a confirmation dialog shown to the user before
-/// a tool executes. Used as: option (mcp.protobuf.elicitation) = { ... };
+/// a tool executes. Used as: option (mcp.elicitation) = { ... };
 ///
 /// The form schema is a fully-qualified proto message name. The generator
 /// reads that message's fields, types, enums, comments, and field_behavior
 /// annotations to build a type-safe elicitation form.
 ///
 /// Example:
-///    option (mcp.protobuf.elicitation) = {
+///    option (mcp.elicitation) = {
 ///      message: "Please confirm before deleting."
 ///      schema: "todo.v1.DeleteConfirmation"
 ///    };
@@ -87,7 +87,7 @@ pub struct McpElicitation {
     pub schema: ::prost::alloc::string::String,
 }
 /// MCPFieldOptions attaches JSON Schema metadata to a message field.
-/// Used as: option (mcp.protobuf.field) = { description: "...", examples: \[...\], ... };
+/// Used as: option (mcp.field) = { description: "...", examples: \[...\], ... };
 /// These appear in the MCP tool inputSchema for that field.
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct McpFieldOptions {
@@ -106,7 +106,7 @@ pub struct McpFieldOptions {
     pub format: ::prost::alloc::string::String,
 }
 /// MCPEnumOptions attaches a description to an enum type.
-/// Used as: option (mcp.protobuf.enum) = { description: "..." };
+/// Used as: option (mcp.enum) = { description: "..." };
 /// The description appears in the MCP tool inputSchema for enum fields.
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct McpEnumOptions {
@@ -115,7 +115,7 @@ pub struct McpEnumOptions {
     pub description: ::prost::alloc::string::String,
 }
 /// MCPEnumValueOptions attaches a description to an enum value.
-/// Used as: ENUM_VALUE = 0 \[(mcp.protobuf.enum_value) = { description: "..." }\];
+/// Used as: ENUM_VALUE = 0 \[(mcp.enum_value) = { description: "..." }\];
 /// Value descriptions are combined into the schema description for the enum field.
 #[derive(Clone, PartialEq, Eq, Hash, ::prost::Message)]
 pub struct McpEnumValueOptions {
@@ -230,12 +230,12 @@ impl McpMimeType {
 ///
 /// 	message CreateTodoStreamChunk {
 /// 	  oneof payload {
-/// 	    mcp.protobuf.MCPProgress progress = 1;
+/// 	    mcp.MCPProgress progress = 1;
 /// 	    Todo result = 2;
 /// 	  }
 /// 	}
 /// 	rpc CreateTodo(CreateTodoRequest) returns (stream CreateTodoStreamChunk) {
-/// 	  option (mcp.protobuf.tool) = { progress: true };
+/// 	  option (mcp.tool) = { progress: true };
 /// 	}
 ///
 /// How to send _meta (MCP client):

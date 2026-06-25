@@ -90,7 +90,7 @@ var File_mcp_protobuf_app_proto protoreflect.FileDescriptor
 
 const file_mcp_protobuf_app_proto_rawDesc = "" +
 	"\n" +
-	"\x16mcp/protobuf/app.proto\x12\fmcp.protobuf\x1a\x19google/api/resource.proto\"~\n" +
+	"\x16mcp/protobuf/app.proto\x12\x03mcp\x1a\x19google/api/resource.proto\"~\n" +
 	"\x06MCPApp\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12\x18\n" +
 	"\aversion\x18\x02 \x01(\tR\aversion\x12 \n" +
@@ -113,7 +113,7 @@ func file_mcp_protobuf_app_proto_rawDescGZIP() []byte {
 
 var file_mcp_protobuf_app_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_mcp_protobuf_app_proto_goTypes = []any{
-	(*MCPApp)(nil), // 0: mcp.protobuf.MCPApp
+	(*MCPApp)(nil), // 0: mcp.MCPApp
 }
 var file_mcp_protobuf_app_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
