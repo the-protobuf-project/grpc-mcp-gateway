@@ -20,15 +20,17 @@ import json
 import os
 import sys
 
-import pytest
-from anyio import create_memory_object_stream
-from mcp import types
-from mcp.client.session import ClientSession
-from mcp.server.lowlevel import NotificationOptions, Server
-from mcp.server.models import InitializationOptions
-
-# Make generated code importable.
+# Make generated code importable. Must run before the first `mcp` import so the
+# vendored mcp.protobuf namespace (under proto/generated/python/mcp) is loaded
+# and extends onto the installed `mcp` SDK package via pkgutil.extend_path.
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "proto", "generated", "python"))
+
+import pytest  # noqa: E402
+from anyio import create_memory_object_stream  # noqa: E402
+from mcp import types  # noqa: E402
+from mcp.client.session import ClientSession  # noqa: E402
+from mcp.server.lowlevel import NotificationOptions, Server  # noqa: E402
+from mcp.server.models import InitializationOptions  # noqa: E402
 
 from todo.v1.todo_service_pb2_mcp import register_todo_service_mcp_handler  # noqa: E402
 

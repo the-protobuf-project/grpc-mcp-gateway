@@ -6,7 +6,6 @@ requires-python = ">=3.13"
 dependencies = [
     "anyio>=4.13.0",
     "googleapis-common-protos>=1.74.0",
-    "grpc-mcp-gateway-protos",
     "grpcio>=1.78.0",
     "grpcio-reflection>=1.80.0",
     "mcp>=1.27.0",
@@ -16,9 +15,7 @@ dependencies = [
 ]
 
 # Override: googleapis-common-protos declares protobuf<7; we need 7.x for buf-generated code.
+# The mcp.protobuf annotation types are generated client-side and vendored under
+# proto/generated/python/mcp, so no external package dependency is required.
 [tool.uv]
 override-dependencies = ["protobuf>=7.34.1"]
-
-[tool.uv.sources]
-# Use local mcp.protobuf package (required for examples in this repo; CI and local dev)
-grpc-mcp-gateway-protos = { path = "../../mcp/protobuf/python" }
