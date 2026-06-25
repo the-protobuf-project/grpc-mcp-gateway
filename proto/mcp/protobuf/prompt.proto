@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package mcp.protobuf;
+package mcp;
 
 option go_package = "github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb";
 option java_multiple_files = true;
@@ -31,7 +31,7 @@ message MCPPrompt {
 }
 
 // MCPToolOptions configures an individual RPC method as an MCP tool.
-// Used as: option (mcp.protobuf.tool) = { ... };
+// Used as: option (mcp.tool) = { ... };
 message MCPToolOptions {
   // Override the auto-generated MCP tool name.
   string name = 1;
@@ -40,6 +40,6 @@ message MCPToolOptions {
   // When true, this RPC supports MCP progress notifications. Clients may include
   // progressToken in params._meta; the server will send progress updates during
   // execution. Requires a server-streaming RPC whose response has a oneof with
-  // mcp.protobuf.MCPProgress and the result type.
+  // mcp.MCPProgress and the result type.
   optional bool progress = 3;
 }

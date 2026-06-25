@@ -18,7 +18,8 @@ plugins:
       - lang=go
       - module=github.com/the-protobuf-project/grpc-mcp-gateway/examples/proto/generated/go
   # --- Python ---
-  - remote: buf.build/protocolbuffers/python
+  # Pin to match the protobuf runtime available on PyPI (see proto/buf.gen.yaml).
+  - remote: buf.build/protocolbuffers/python:v34.1
     out: proto/generated/python
   - remote: buf.build/grpc/python
     out: proto/generated/python

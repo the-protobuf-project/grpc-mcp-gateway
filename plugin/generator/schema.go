@@ -141,7 +141,7 @@ func messageSchema(md protoreflect.MessageDescriptor, openAI bool, schemaDesc st
 	return result
 }
 
-// getFieldDescription returns the field description from (mcp.protobuf.field) if set,
+// getFieldDescription returns the field description from (mcp.field) if set,
 // otherwise the fallback (e.g. from the leading comment).
 func getFieldDescription(fd protoreflect.FieldDescriptor, fallback string) string {
 	if proto.HasExtension(fd.Options(), mcppb.E_Field) {
@@ -153,9 +153,9 @@ func getFieldDescription(fd protoreflect.FieldDescriptor, fallback string) strin
 	return fallback
 }
 
-// applyMCPFieldOptions applies (mcp.protobuf.field) options to the schema.
+// applyMCPFieldOptions applies (mcp.field) options to the schema.
 // Format from MCPFieldOptions overrides any from buf.validate.
-// For enum fields with (mcp.protobuf.enum) or (mcp.protobuf.enum_value), enum descriptions take precedence over field description.
+// For enum fields with (mcp.enum) or (mcp.enum_value), enum descriptions take precedence over field description.
 func applyMCPFieldOptions(fd protoreflect.FieldDescriptor, schema map[string]any, descFallback string) {
 	if !proto.HasExtension(fd.Options(), mcppb.E_Field) {
 		if descFallback != "" {

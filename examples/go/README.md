@@ -29,7 +29,7 @@ go/
     └── impl.go
 ```
 
-**TodoService** examples use an in-memory `todoServer` implementing both gRPC `TodoServiceServer` and MCP `TodoServiceMCPServer`. **CounterService** demonstrates server-streaming with `mcp.protobuf.MCPProgress` for progress notifications.
+**TodoService** examples use an in-memory `todoServer` implementing both gRPC `TodoServiceServer` and MCP `TodoServiceMCPServer`. **CounterService** demonstrates server-streaming with `mcp.MCPProgress` for progress notifications.
 
 ## Running
 
@@ -118,6 +118,6 @@ Test flow:
 **CounterService** (`counter_service.pb.mcp.go`):
 - `CounterServiceMCPClient` interface — streaming Count RPC
 - `ForwardToCounterServiceMCPClient(s, client, opts...)` — forwards tool calls to gRPC, streams progress
-- Server-streaming with `mcp.protobuf.MCPProgress` for progress notifications
+- Server-streaming with `mcp.MCPProgress` for progress notifications
 
 The `runtime` package handles transport selection, multi-transport serving, header-to-metadata forwarding, and schema injection.

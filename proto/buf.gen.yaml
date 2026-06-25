@@ -6,7 +6,10 @@ plugins:
     opt:
       - module=github.com/the-protobuf-project/grpc-mcp-gateway
   # --- Python (pre-compiled, published as grpc-mcp-gateway-protos on PyPI) ---
-  - remote: buf.build/protocolbuffers/python
+  # Pin to match the protobuf runtime available on PyPI. The unpinned (latest)
+  # plugin emits gencode 7.35.1, which is newer than the newest published
+  # protobuf runtime (7.34.1) and fails the cross-version runtime check.
+  - remote: buf.build/protocolbuffers/python:v34.1
     out: ../mcp/protobuf/python
   # --- Rust (pre-compiled, published as mcp-protobuf crate) ---
   - remote: buf.build/community/neoeinstein-prost

@@ -86,7 +86,7 @@ var File_mcp_protobuf_field_type_proto protoreflect.FileDescriptor
 
 const file_mcp_protobuf_field_type_proto_rawDesc = "" +
 	"\n" +
-	"\x1dmcp/protobuf/field_type.proto\x12\fmcp.protobuf*\x9c\x01\n" +
+	"\x1dmcp/protobuf/field_type.proto\x12\x03mcp*\x9c\x01\n" +
 	"\fMCPFieldType\x12\x1e\n" +
 	"\x1aMCP_FIELD_TYPE_UNSPECIFIED\x10\x00\x12\x19\n" +
 	"\x15MCP_FIELD_TYPE_STRING\x10\x01\x12\x19\n" +
@@ -109,7 +109,7 @@ func file_mcp_protobuf_field_type_proto_rawDescGZIP() []byte {
 
 var file_mcp_protobuf_field_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_mcp_protobuf_field_type_proto_goTypes = []any{
-	(MCPFieldType)(0), // 0: mcp.protobuf.MCPFieldType
+	(MCPFieldType)(0), // 0: mcp.MCPFieldType
 }
 var file_mcp_protobuf_field_type_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

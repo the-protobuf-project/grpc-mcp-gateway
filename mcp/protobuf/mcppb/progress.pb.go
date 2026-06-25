@@ -26,12 +26,12 @@ const (
 //
 //	message CreateTodoStreamChunk {
 //	  oneof payload {
-//	    mcp.protobuf.MCPProgress progress = 1;
+//	    mcp.MCPProgress progress = 1;
 //	    Todo result = 2;
 //	  }
 //	}
 //	rpc CreateTodo(CreateTodoRequest) returns (stream CreateTodoStreamChunk) {
-//	  option (mcp.protobuf.tool) = { progress: true };
+//	  option (mcp.tool) = { progress: true };
 //	}
 //
 // How to send _meta (MCP client):
@@ -120,7 +120,7 @@ var File_mcp_protobuf_progress_proto protoreflect.FileDescriptor
 
 const file_mcp_protobuf_progress_proto_rawDesc = "" +
 	"\n" +
-	"\x1bmcp/protobuf/progress.proto\x12\fmcp.protobuf\"h\n" +
+	"\x1bmcp/protobuf/progress.proto\x12\x03mcp\"h\n" +
 	"\vMCPProgress\x12\x1a\n" +
 	"\bprogress\x18\x01 \x01(\x01R\bprogress\x12\x19\n" +
 	"\x05total\x18\x02 \x01(\x01H\x00R\x05total\x88\x01\x01\x12\x18\n" +
@@ -142,7 +142,7 @@ func file_mcp_protobuf_progress_proto_rawDescGZIP() []byte {
 
 var file_mcp_protobuf_progress_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_mcp_protobuf_progress_proto_goTypes = []any{
-	(*MCPProgress)(nil), // 0: mcp.protobuf.MCPProgress
+	(*MCPProgress)(nil), // 0: mcp.MCPProgress
 }
 var file_mcp_protobuf_progress_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

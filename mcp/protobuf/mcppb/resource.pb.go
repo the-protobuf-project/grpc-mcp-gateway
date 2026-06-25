@@ -33,7 +33,7 @@ type MCPResource struct {
 	// Description of what this resource provides.
 	Description string `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
 	// The MIME type of the resource content.
-	MimeType      MCPMimeType `protobuf:"varint,5,opt,name=mime_type,json=mimeType,proto3,enum=mcp.protobuf.MCPMimeType" json:"mime_type,omitempty"`
+	MimeType      MCPMimeType `protobuf:"varint,5,opt,name=mime_type,json=mimeType,proto3,enum=mcp.MCPMimeType" json:"mime_type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -107,13 +107,13 @@ var File_mcp_protobuf_resource_proto protoreflect.FileDescriptor
 
 const file_mcp_protobuf_resource_proto_rawDesc = "" +
 	"\n" +
-	"\x1bmcp/protobuf/resource.proto\x12\fmcp.protobuf\x1a\x1cmcp/protobuf/mime_type.proto\"\xa7\x01\n" +
+	"\x1bmcp/protobuf/resource.proto\x12\x03mcp\x1a\x1cmcp/protobuf/mime_type.proto\"\x9e\x01\n" +
 	"\vMCPResource\x12\x10\n" +
 	"\x03uri\x18\x01 \x01(\tR\x03uri\x12\x18\n" +
 	"\apattern\x18\x02 \x01(\tR\apattern\x12\x12\n" +
 	"\x04name\x18\x03 \x01(\tR\x04name\x12 \n" +
-	"\vdescription\x18\x04 \x01(\tR\vdescription\x126\n" +
-	"\tmime_type\x18\x05 \x01(\x0e2\x19.mcp.protobuf.MCPMimeTypeR\bmimeTypeBh\n" +
+	"\vdescription\x18\x04 \x01(\tR\vdescription\x12-\n" +
+	"\tmime_type\x18\x05 \x01(\x0e2\x10.mcp.MCPMimeTypeR\bmimeTypeBh\n" +
 	"\x10com.mcp.protobufB\rResourceProtoP\x01ZCgithub.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppbb\x06proto3"
 
 var (
@@ -130,11 +130,11 @@ func file_mcp_protobuf_resource_proto_rawDescGZIP() []byte {
 
 var file_mcp_protobuf_resource_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_mcp_protobuf_resource_proto_goTypes = []any{
-	(*MCPResource)(nil), // 0: mcp.protobuf.MCPResource
-	(MCPMimeType)(0),    // 1: mcp.protobuf.MCPMimeType
+	(*MCPResource)(nil), // 0: mcp.MCPResource
+	(MCPMimeType)(0),    // 1: mcp.MCPMimeType
 }
 var file_mcp_protobuf_resource_proto_depIdxs = []int32{
-	1, // 0: mcp.protobuf.MCPResource.mime_type:type_name -> mcp.protobuf.MCPMimeType
+	1, // 0: mcp.MCPResource.mime_type:type_name -> mcp.MCPMimeType
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

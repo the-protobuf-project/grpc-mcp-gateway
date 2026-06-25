@@ -6,7 +6,7 @@ import (
 	"google.golang.org/protobuf/proto"
 )
 
-// ExtractServiceOptions reads the mcp.protobuf.service extension from a service descriptor.
+// ExtractServiceOptions reads the mcp.service extension from a service descriptor.
 func ExtractServiceOptions(svc *protogen.Service) *MCPServiceOpts {
 	opts := svc.Desc.Options()
 	if opts == nil {
@@ -27,7 +27,7 @@ func ExtractServiceOptions(svc *protogen.Service) *MCPServiceOpts {
 	return result
 }
 
-// ExtractMethodOptions reads mcp.protobuf.tool, mcp.protobuf.prompt, and mcp.protobuf.elicitation
+// ExtractMethodOptions reads mcp.tool, mcp.prompt, and mcp.elicitation
 // extensions from a method descriptor and merges them into a single MCPMethodOpts.
 func ExtractMethodOptions(meth *protogen.Method) *MCPMethodOpts {
 	opts := meth.Desc.Options()
@@ -38,7 +38,7 @@ func ExtractMethodOptions(meth *protogen.Method) *MCPMethodOpts {
 	result := &MCPMethodOpts{}
 	hasAnything := false
 
-	// mcp.protobuf.tool — name/description overrides
+	// mcp.tool — name/description overrides
 	toolExt, ok := proto.GetExtension(opts, mcppb.E_Tool).(*mcppb.MCPToolOptions)
 	if ok && toolExt != nil {
 		result.ToolName = toolExt.GetName()
@@ -46,7 +46,7 @@ func ExtractMethodOptions(meth *protogen.Method) *MCPMethodOpts {
 		hasAnything = true
 	}
 
-	// mcp.protobuf.prompt — per-RPC prompt template with schema reference
+	// mcp.prompt — per-RPC prompt template with schema reference
 	promptExt, ok := proto.GetExtension(opts, mcppb.E_Prompt).(*mcppb.MCPPrompt)
 	if ok && promptExt != nil {
 		result.Prompt = &MCPPromptOpts{
@@ -57,7 +57,7 @@ func ExtractMethodOptions(meth *protogen.Method) *MCPMethodOpts {
 		hasAnything = true
 	}
 
-	// mcp.protobuf.elicitation — confirmation dialog with schema reference
+	// mcp.elicitation — confirmation dialog with schema reference
 	elicitExt, ok := proto.GetExtension(opts, mcppb.E_Elicitation).(*mcppb.MCPElicitation)
 	if ok && elicitExt != nil {
 		result.Elicitation = &MCPElicitationOpts{

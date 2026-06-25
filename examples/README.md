@@ -35,13 +35,13 @@ deps:
 import "mcp/protobuf/annotations.proto";
 
 service TodoService {
-  option (mcp.protobuf.service) = {
+  option (mcp.service) = {
     app: { name: "Todo App" version: "1.0.0" }
   };
 
   rpc CreateTodo(CreateTodoRequest) returns (Todo) {
-    option (mcp.protobuf.tool) = { ... };
-    option (mcp.protobuf.elicitation) = { ... };
+    option (mcp.tool) = { ... };
+    option (mcp.elicitation) = { ... };
   };
 }
 ```
@@ -53,12 +53,12 @@ import "mcp/protobuf/annotations.proto";
 import "mcp/protobuf/progress.proto";
 
 service CounterService {
-  option (mcp.protobuf.service) = {
+  option (mcp.service) = {
     app: { name: "Counter App" version: "1.0.0" description: "..." }
   };
 
   rpc Count(CountRequest) returns (stream CountStreamChunk) {
-    option (mcp.protobuf.tool) = {
+    option (mcp.tool) = {
       description: "Counts from 0 up to the given number. Sends progress updates."
       progress: true
     };
@@ -67,7 +67,7 @@ service CounterService {
 
 message CountStreamChunk {
   oneof payload {
-    mcp.protobuf.MCPProgress progress = 1;
+    mcp.MCPProgress progress = 1;
     CountResponse result = 2;
   }
 }
@@ -76,12 +76,12 @@ message CountStreamChunk {
 Clients request progress by including `progressToken` in `params._meta` when calling the tool.
 
 **TodoService** uses:
-- **`mcp.protobuf.service`** — app-level metadata
-- **`mcp.protobuf.tool`** — per-RPC tool name/description overrides
-- **`mcp.protobuf.prompt`** — per-RPC prompt templates with schema-based arguments
-- **`mcp.protobuf.elicitation`** — confirmation dialogs with schema-based forms
-- **`mcp.protobuf.field`** — field descriptions, examples, format for tool inputSchema
-- **`mcp.protobuf.enum`** / **`mcp.protobuf.enum_value`** — enum-level and per-value descriptions
+- **`mcp.service`** — app-level metadata
+- **`mcp.tool`** — per-RPC tool name/description overrides
+- **`mcp.prompt`** — per-RPC prompt templates with schema-based arguments
+- **`mcp.elicitation`** — confirmation dialogs with schema-based forms
+- **`mcp.field`** — field descriptions, examples, format for tool inputSchema
+- **`mcp.enum`** / **`mcp.enum_value`** — enum-level and per-value descriptions
 - **`google.api.resource`** — auto-detected MCP resources from AIP resource annotations
 
 **CounterService** uses `progress: true` on the tool option and the oneof layout above. See [Progress](https://github.com/the-protobuf-project/grpc-mcp-gateway#progress-server-streaming) in the main README for details.

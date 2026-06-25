@@ -5,7 +5,14 @@ import (
 	"google.golang.org/protobuf/reflect/protoreflect"
 )
 
-const mcpProgressFQN = "mcp.protobuf.MCPProgress"
+// mcpProgressFQNs lists the fully-qualified names under which MCPProgress may
+// appear. The annotations declare package "mcp" (matching the published
+// buf.build/the-protobuf-project/mcp module); "mcp.protobuf" is the legacy
+// package name, still accepted so older generated protos keep working.
+var mcpProgressFQNs = map[string]bool{
+	"mcp.MCPProgress":          true,
+	"mcp.protobuf.MCPProgress": true,
+}
 
 // StreamProgressInfo describes a server-streaming RPC that uses MCPProgress for progress updates.
 // When non-nil, the streamed message has a oneof with MCPProgress and a result field.
@@ -23,7 +30,7 @@ type StreamProgressInfo struct {
 
 // DetectProgressStream returns StreamProgressInfo if the method is server-streaming
 // and the streamed message follows the progress convention: a oneof with
-// mcp.protobuf.MCPProgress and the result type.
+// mcp.MCPProgress and the result type.
 func DetectProgressStream(meth *protogen.Method, resolveType func(protogen.GoIdent) string) *StreamProgressInfo {
 	if !meth.Desc.IsStreamingServer() || meth.Desc.IsStreamingClient() {
 		return nil
@@ -46,7 +53,7 @@ func DetectProgressStream(meth *protogen.Method, resolveType func(protogen.GoIde
 				continue
 			}
 			fqn := string(f.Message.Desc.FullName())
-			if fqn == mcpProgressFQN {
+			if mcpProgressFQNs[fqn] {
 				prog = f
 			} else {
 				res = f

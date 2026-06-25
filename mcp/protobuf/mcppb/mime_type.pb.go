@@ -106,7 +106,7 @@ var File_mcp_protobuf_mime_type_proto protoreflect.FileDescriptor
 
 const file_mcp_protobuf_mime_type_proto_rawDesc = "" +
 	"\n" +
-	"\x1cmcp/protobuf/mime_type.proto\x12\fmcp.protobuf*\xd9\x02\n" +
+	"\x1cmcp/protobuf/mime_type.proto\x12\x03mcp*\xd9\x02\n" +
 	"\vMCPMimeType\x12\x1d\n" +
 	"\x19MCP_MIME_TYPE_UNSPECIFIED\x10\x00\x12\"\n" +
 	"\x1eMCP_MIME_TYPE_APPLICATION_JSON\x10\x01\x12\x1c\n" +
@@ -134,7 +134,7 @@ func file_mcp_protobuf_mime_type_proto_rawDescGZIP() []byte {
 
 var file_mcp_protobuf_mime_type_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_mcp_protobuf_mime_type_proto_goTypes = []any{
-	(MCPMimeType)(0), // 0: mcp.protobuf.MCPMimeType
+	(MCPMimeType)(0), // 0: mcp.MCPMimeType
 }
 var file_mcp_protobuf_mime_type_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
