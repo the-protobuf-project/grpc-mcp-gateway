@@ -133,6 +133,9 @@ func Register{{ $svcName }}MCPHandler(s *mcp.Server, srv {{ $svcName }}MCPServer
 			errCh := make(chan error, 1)
 			go func() {
 				defer stream.Close()
+				// Streaming tools call the service directly: cfg.UnaryInterceptor
+				// is unary-only (a grpc.StreamServerInterceptor has a different
+				// shape), so unary middleware does not cover progress tools.
 				errCh <- srv.{{ $methName }}(&pbReq, stream)
 			}()
 			go func() {
@@ -197,10 +200,15 @@ func Register{{ $svcName }}MCPHandler(s *mcp.Server, srv {{ $svcName }}MCPServer
 			if err := (protojson.UnmarshalOptions{DiscardUnknown: true}).Unmarshal(args, &pbReq); err != nil {
 				return nil, err
 			}
-			resp, err := srv.{{ $methName }}(ctx, &pbReq)
+			// Dispatch through the unary interceptor chain (when configured) so
+			// middleware sees this call exactly as it would the wire RPC.
+			rawResp, err := runtime.InvokeUnary(ctx, cfg.UnaryInterceptor, "{{ $tool.FullMethod }}", srv, &pbReq, func(ctx context.Context, req any) (any, error) {
+				return srv.{{ $methName }}(ctx, req.(*{{ $tool.RequestType }}))
+			})
 			if err != nil {
 				return runtime.HandleError(err)
 			}
+			resp := rawResp.(*{{ $tool.ResponseType }})
 			out, err := (protojson.MarshalOptions{UseProtoNames: true, EmitDefaultValues: true}).Marshal(resp)
 			if err != nil {
 				return nil, err
@@ -303,6 +311,12 @@ func Serve{{ $svcName }}MCP(ctx context.Context, srv {{ $svcName }}MCPServer, cf
 			cfg.ServerOptions = &mcp.ServerOptions{}
 		}
 		cfg.ServerOptions.CompletionHandler = runtime.CompletionHandlerFromEnums(completionMap)
+	}
+
+	// Forward the hosting server's unary interceptor chain so every tool call
+	// runs the same middleware (validation, auth, tracing) as the wire RPC.
+	if cfg.UnaryInterceptor != nil {
+		opts = append(opts, runtime.WithUnaryInterceptor(cfg.UnaryInterceptor))
 	}
 
 	return runtime.StartServer(ctx, cfg, func(s *mcp.Server) {

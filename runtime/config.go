@@ -1,6 +1,10 @@
 package runtime
 
-import "context"
+import (
+	"context"
+
+	"google.golang.org/grpc"
+)
 
 // Transport represents the transport protocol for the MCP server.
 type Transport string
@@ -34,6 +38,15 @@ type Config struct {
 	// modify elicitation fields at runtime (e.g. inject dynamic enum values).
 	// toolName is the MCP tool name. Returning an error aborts the tool call.
 	ElicitHook func(ctx context.Context, toolName string, fields []ElicitField) ([]ElicitField, error)
+	// UnaryInterceptor, when set, wraps every unary tool call exactly like a
+	// gRPC server's unary interceptor chain wraps an RPC: the generated
+	// handlers invoke it (via InvokeUnary) with a grpc.UnaryServerInfo carrying
+	// the RPC's full method name, so cross-cutting middleware — request
+	// validation, auth, tracing — behaves identically whether a request
+	// arrives over gRPC or MCP. Streaming (progress) tools are not covered:
+	// they would need a grpc.StreamServerInterceptor, which has a different
+	// shape. Compose multiple interceptors with ChainUnaryInterceptors.
+	UnaryInterceptor grpc.UnaryServerInterceptor
 }
 
 // ExtraProperty defines an additional property to inject into tool schemas
@@ -92,6 +105,44 @@ func WithAddr(addr string) Option {
 func WithElicitHook(hook func(ctx context.Context, toolName string, fields []ElicitField) ([]ElicitField, error)) Option {
 	return func(c *Config) {
 		c.ElicitHook = hook
+	}
+}
+
+// WithUnaryInterceptor returns an Option that sets the unary interceptor
+// wrapped around every unary tool call. Pass ChainUnaryInterceptors(...) to
+// compose several.
+func WithUnaryInterceptor(interceptor grpc.UnaryServerInterceptor) Option {
+	return func(c *Config) {
+		c.UnaryInterceptor = interceptor
+	}
+}
+
+// ChainUnaryInterceptors composes interceptors into one, invoked in the given
+// order (the first interceptor is outermost), matching
+// grpc.ChainUnaryInterceptor semantics. Nil entries are skipped; with no
+// non-nil entries it returns nil.
+func ChainUnaryInterceptors(interceptors ...grpc.UnaryServerInterceptor) grpc.UnaryServerInterceptor {
+	chain := make([]grpc.UnaryServerInterceptor, 0, len(interceptors))
+	for _, i := range interceptors {
+		if i != nil {
+			chain = append(chain, i)
+		}
+	}
+	switch len(chain) {
+	case 0:
+		return nil
+	case 1:
+		return chain[0]
+	}
+	return func(ctx context.Context, req any, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (any, error) {
+		wrapped := handler
+		for i := len(chain) - 1; i >= 0; i-- {
+			next, interceptor := wrapped, chain[i]
+			wrapped = func(ctx context.Context, req any) (any, error) {
+				return interceptor(ctx, req, info, next)
+			}
+		}
+		return wrapped(ctx, req)
 	}
 }
 

@@ -56,7 +56,7 @@ func main() {
 	if ep, err := runtime.ServerEndpoint(cfg); err == nil {
 		log.Printf("MCP will listen on %s", ep.URL)
 	}
-	
+
 	// ServeTodoServiceMCP registers all generated tools, prompts, resources, and app.
 	if err := todopbv1.ServeTodoServiceMCP(context.Background(), srv, cfg); err != nil {
 		log.Fatalf("MCP server error: %v", err)

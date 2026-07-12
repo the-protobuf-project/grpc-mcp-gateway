@@ -60,6 +60,19 @@ type MCPServerConfig struct {
 	// WriteTimeout is the maximum duration before timing out writes of the response. Zero means no limit.
 	// For progress-enabled tools, keep at 0 so streaming progress notifications do not time out.
 	WriteTimeout time.Duration
+	// UnaryInterceptor, when set, is wrapped around every unary tool call the
+	// served handlers dispatch — the hosting server's chance to push its gRPC
+	// unary interceptor chain (validation, auth, tracing) down to MCP so both
+	// surfaces enforce identical middleware. Generated Serve*MCP functions
+	// forward it to the handler registration; see Config.UnaryInterceptor.
+	UnaryInterceptor grpc.UnaryServerInterceptor
+	// Mux, when non-nil, mounts the HTTP transports on this shared mux at
+	// BasePath instead of starting a listener of the server's own — the seam a
+	// hosting process uses to serve many MCP services from ONE port, routed by
+	// their distinct base paths. StartServer then blocks until ctx is
+	// cancelled; the host owns the http.Server lifecycle. Ignored by the stdio
+	// transport, which cannot share.
+	Mux *http.ServeMux
 }
 
 // NewMCPServer creates an mcp.Server from a MCPServerConfig.
@@ -89,11 +102,21 @@ func ParseTransports(s string) []Transport {
 	return out
 }
 
+// shutdownTimeout bounds the graceful drain of an HTTP transport once the
+// caller's context is cancelled.
+const shutdownTimeout = 5 * time.Second
+
 // StartServer starts the MCP server using the configured transport(s).
 // Multiple transports run concurrently -- HTTP-based transports share a
 // single net/http server while stdio gets its own mcp.Server instance.
-// This call blocks until the context is cancelled or an error occurs.
+// This call blocks until the context is cancelled (HTTP transports are then
+// drained gracefully and nil is returned) or a serve error occurs.
 func StartServer(ctx context.Context, cfg *MCPServerConfig, register func(s *mcp.Server)) error {
+	// Defaults are resolved on a copy so a caller sharing one config across
+	// several servers never observes another server's resolved state.
+	resolved := *cfg
+	cfg = &resolved
+
 	transports := cfg.Transports
 	if len(transports) == 0 {
 		t := cfg.Transport
@@ -129,16 +152,29 @@ func StartServer(ctx context.Context, cfg *MCPServerConfig, register func(s *mcp
 		cfg.OnReady(cfg)
 	}
 
-	// Start HTTP transport(s) if requested.
+	// Shared-mux mode: mount on the host's mux and let it own the listener.
+	if cfg.Mux != nil && len(httpTransports) > 0 {
+		httpServer := NewMCPServer(cfg)
+		register(httpServer)
+		mountHTTPTransports(cfg.Mux, httpServer, cfg, httpTransports)
+		if hasStdio {
+			stdioServer := NewMCPServer(cfg)
+			register(stdioServer)
+			return serveStdio(ctx, stdioServer)
+		}
+		<-ctx.Done()
+		return nil
+	}
+
+	// Start HTTP transport(s) if requested. Header-mapping middleware is
+	// applied per mounted handler inside buildHTTPMux.
 	if len(httpTransports) > 0 {
 		httpServer := NewMCPServer(cfg)
 		register(httpServer)
-		var handler http.Handler = buildHTTPMux(httpServer, cfg, httpTransports)
-		handler = HeadersMiddleware(cfg.HeaderMappings, handler)
 
 		srv := &http.Server{
 			Addr:         cfg.Addr,
-			Handler:      handler,
+			Handler:      buildHTTPMux(httpServer, cfg, httpTransports),
 			ReadTimeout:  cfg.ReadTimeout,  // 0 = no limit; progress requests must not time out
 			WriteTimeout: cfg.WriteTimeout, // 0 = no limit; streaming progress must not time out
 		}
@@ -148,11 +184,28 @@ func StartServer(ctx context.Context, cfg *MCPServerConfig, register func(s *mcp
 					log.Printf("runtime: HTTP server error: %v", err)
 				}
 			}()
+			// The stdio path below blocks on ctx; drain HTTP when it ends.
+			go func() {
+				<-ctx.Done()
+				shutdownCtx, cancel := context.WithTimeout(context.Background(), shutdownTimeout)
+				defer cancel()
+				_ = srv.Shutdown(shutdownCtx)
+			}()
 		} else {
-			if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-				return err
+			errCh := make(chan error, 1)
+			go func() { errCh <- srv.ListenAndServe() }()
+			select {
+			case err := <-errCh:
+				if err != nil && err != http.ErrServerClosed {
+					return err
+				}
+				return nil
+			case <-ctx.Done():
+				shutdownCtx, cancel := context.WithTimeout(context.Background(), shutdownTimeout)
+				defer cancel()
+				_ = srv.Shutdown(shutdownCtx)
+				return ctx.Err()
 			}
-			return nil
 		}
 	}
 
@@ -164,17 +217,27 @@ func StartServer(ctx context.Context, cfg *MCPServerConfig, register func(s *mcp
 	return fmt.Errorf("runtime: no transports configured")
 }
 
-// buildHTTPMux registers HTTP-based transports on a shared ServeMux.
+// buildHTTPMux registers HTTP-based transports on a fresh ServeMux.
 func buildHTTPMux(server *mcp.Server, cfg *MCPServerConfig, transports []Transport) *http.ServeMux {
 	mux := http.NewServeMux()
+	mountHTTPTransports(mux, server, cfg, transports)
+	return mux
+}
+
+// mountHTTPTransports registers the HTTP-based transport handlers for one MCP
+// server on mux at cfg.BasePath. Distinct base paths let many MCP services
+// share one mux (and therefore one port); header-mapping middleware is applied
+// per handler so shared-mux mounts keep their own mappings.
+func mountHTTPTransports(mux *http.ServeMux, server *mcp.Server, cfg *MCPServerConfig, transports []Transport) {
+	wrap := func(h http.Handler) http.Handler { return HeadersMiddleware(cfg.HeaderMappings, h) }
 	for _, t := range transports {
 		switch t {
 		case TransportStreamableHTTP:
 			h := mcp.NewStreamableHTTPHandler(func(_ *http.Request) *mcp.Server { return server }, cfg.StreamableHTTPOptions)
-			mux.Handle(cfg.BasePath, h)
+			mux.Handle(cfg.BasePath, wrap(h))
 		case TransportSSE:
 			h := mcp.NewSSEHandler(func(_ *http.Request) *mcp.Server { return server }, cfg.SSEOptions)
-			mux.Handle(cfg.BasePath+"/", h)
+			mux.Handle(cfg.BasePath+"/", wrap(h))
 		}
 	}
 	if cfg.HealthCheckPath != "" && cfg.HealthCheckConn != nil {
@@ -184,7 +247,6 @@ func buildHTTPMux(server *mcp.Server, cfg *MCPServerConfig, transports []Transpo
 		}
 		mux.Handle(path, HealthCheckHandler(cfg.HealthCheckConn))
 	}
-	return mux
 }
 
 func serveStdio(ctx context.Context, server *mcp.Server) error {

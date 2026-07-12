@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/google/jsonschema-go/jsonschema"
-	"github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb"
 	"github.com/modelcontextprotocol/go-sdk/mcp"
+	"github.com/the-protobuf-project/grpc-mcp-gateway/mcp/protobuf/mcppb"
 )
 
 // SendProgressFromProto sends an MCP progress notification from an MCPProgress proto.
@@ -75,7 +75,6 @@ func DefaultResourceHandler() func(context.Context, *mcp.ReadResourceRequest) (*
 		}, nil
 	}
 }
-
 
 // AppResourceURI returns the canonical ui:// resource URI for a service app.
 func AppResourceURI(serviceName string) string {
