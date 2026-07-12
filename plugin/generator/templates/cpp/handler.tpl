@@ -64,7 +64,7 @@ impl ServerHandler for {{ $svcName }}McpHandler {
         {{- range $methName, $info := $methods }}
             "{{ $info.ToolName }}" => {
                 let result_json = self.inner.{{ $info.CppMethodName }}(&_args_json);
-                Ok(CallToolResult::success(vec![Content::text(result_json)]))
+                Ok(CallToolResult::success(vec![ContentBlock::text(result_json)]))
             }
         {{- end }}
             _ => Err(McpError::internal_error(format!("unknown tool: {}", request.name), None)),
