@@ -217,14 +217,14 @@ impl<T: {{ $svcName }}McpServer> ServerHandler for {{ $svcName }}McpHandler<T> {
                         "required": [{{ range $info.MethodOpts.Elicitation.Fields }}{{ if .Required }}"{{ .Name }}", {{ end }}{{ end }}]
                     })).unwrap()
                 ) {
-                    let params = CreateElicitationRequestParams::FormElicitationParams {
+                    let params = ElicitRequestParams::FormElicitationParams {
                         meta: None,
                         message: {{ $info.MethodOpts.Elicitation.Message | printf "%q" }}.to_string(),
                         requested_schema: schema,
                     };
                     match context.peer.create_elicitation(params).await {
                         Ok(result) if result.action != ElicitationAction::Accept => {
-                            return Ok(CallToolResult::success(vec![Content::text("Action cancelled by user.")]));
+                            return Ok(CallToolResult::success(vec![ContentBlock::text("Action cancelled by user.")]));
                         }
                         _ => {} // proceed (including errors — graceful degradation)
                     }
@@ -233,7 +233,7 @@ impl<T: {{ $svcName }}McpServer> ServerHandler for {{ $svcName }}McpHandler<T> {
                 let result = self.inner.{{ $info.RsMethodName }}(args).await?;
                 let text = serde_json::to_string(&result)
                     .map_err(|e| McpError::internal_error(format!("serialize response: {e}"), None))?;
-                Ok(CallToolResult::success(vec![Content::text(text)]))
+                Ok(CallToolResult::success(vec![ContentBlock::text(text)]))
             }
         {{- end }}
         {{- end }}
@@ -253,7 +253,7 @@ impl<T: {{ $svcName }}McpServer> ServerHandler for {{ $svcName }}McpHandler<T> {
                     .map(|a| a.iter().map(|(k, v)| format!("{k}={v}")).collect::<Vec<_>>().join(", "))
                     .unwrap_or_default();
                 let desc = p.description.clone().unwrap_or_default();
-                let messages = vec![PromptMessage::new_text(PromptMessageRole::User, format!("{desc} ({arg_str})"))];
+                let messages = vec![PromptMessage::new_text(Role::User, format!("{desc} ({arg_str})"))];
                 let mut result = GetPromptResult::new(messages);
                 if let Some(ref d) = p.description {
                     result = result.with_description(d.clone());
