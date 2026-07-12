@@ -7,9 +7,9 @@ import (
 	"os"
 	"time"
 
+	"github.com/modelcontextprotocol/go-sdk/mcp"
 	"github.com/the-protobuf-project/grpc-mcp-gateway/examples/proto/generated/go/counter/counterpbv1"
 	"github.com/the-protobuf-project/grpc-mcp-gateway/runtime"
-	"github.com/modelcontextprotocol/go-sdk/mcp"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/health"

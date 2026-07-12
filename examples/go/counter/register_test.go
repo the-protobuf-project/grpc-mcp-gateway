@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/modelcontextprotocol/go-sdk/mcp"
 	"github.com/the-protobuf-project/grpc-mcp-gateway/examples/proto/generated/go/counter/counterpbv1"
 	"github.com/the-protobuf-project/grpc-mcp-gateway/runtime"
-	"github.com/modelcontextprotocol/go-sdk/mcp"
 )
 
 // TestRegisterCounterServiceMCPHandler verifies the in-process (Register) path

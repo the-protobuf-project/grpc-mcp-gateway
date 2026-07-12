@@ -6,9 +6,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/modelcontextprotocol/go-sdk/mcp"
 	"github.com/the-protobuf-project/grpc-mcp-gateway/examples/proto/generated/go/todo/todopbv1"
 	"github.com/the-protobuf-project/grpc-mcp-gateway/runtime"
-	"github.com/modelcontextprotocol/go-sdk/mcp"
 )
 
 // TestSmokeTodoService verifies the full pipeline:

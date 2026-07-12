@@ -30,6 +30,10 @@ type MethodInfo struct {
 	ResponseType   string
 	MethodOpts     *MCPMethodOpts
 	StreamProgress *StreamProgressInfo // Non-nil when server-streaming with MCPProgress
+	// FullMethod is the gRPC full method name ("/pkg.Service/Method", proto
+	// names) passed to the unary interceptor chain so MCP-dispatched calls are
+	// indistinguishable from wire RPCs to middleware.
+	FullMethod string
 }
 
 // TplParams is the top-level data fed into the code template.
@@ -224,6 +228,7 @@ func (g *FileGenerator) buildParams() TplParams {
 				ResponseType:   responseType,
 				MethodOpts:     methOpts,
 				StreamProgress: streamProgress,
+				FullMethod:     "/" + string(svc.Desc.FullName()) + "/" + string(meth.Desc.Name()),
 			}
 		}
 
