@@ -3,7 +3,7 @@ module github.com/the-protobuf-project/grpc-mcp-gateway
 go 1.25.6
 
 require (
-	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.11-20260415201107-50325440f8f2.1
+	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.11-20260709200747-435963d16310.1
 	github.com/google/jsonschema-go v0.4.3
 	github.com/modelcontextprotocol/go-sdk v1.6.1
 	google.golang.org/genproto/googleapis/api v0.0.0-20260414002931-afd174a4e478
